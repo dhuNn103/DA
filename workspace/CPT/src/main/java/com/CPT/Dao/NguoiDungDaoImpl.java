@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.CPT.DB.DBConnect;
 import com.CPT.Entities.NguoiDung;
+import com.CPT.Entities.VaiTro;
+import com.CPT.Utils.MaHoa;
 
 public class NguoiDungDaoImpl implements NguoiDungDao {
 
@@ -39,29 +42,37 @@ public class NguoiDungDaoImpl implements NguoiDungDao {
 	}
 
 //	@Override
-//	public NguoiDung login(String email, String password) {
-//
-//		NguoiDung nd = null;
-//
+//	public NguoiDung login(String eml, String pass) {
+//		NguoiDung nds = null;
 //		try {
-//			String sql = "select email, mat_khau, ten_vai_tro from nguoi_dung inner join vai_tro on nguoi_dung.id_vai_tro = vai_tro.id_vai_tro";
-//			PreparedStatement ps = conn.prepareStatement(sql);
-//			ps.setString(1, email);
-//			ps.setString(2, password);
+//			
+//			String query = "SELECT nguoi_dung.id_nguoi_dung, ten_vai_tro FROM nguoi_dung JOIN vai_tro ON nguoi_dung.id_vai_tro = vai_tro.id_vai_tro WHERE email = ? AND mat_khau =?";
+//			PreparedStatement ps = conn.prepareStatement(query);
+//			ps.setString(1, eml);
+//			ps.setString(2, pass);
+//			
+//			ResultSet rs = ps.executeQuery();
 //
-//			ResultSet r = ps.executeQuery();
-//			while (r.next()) {
-//				nd = new NguoiDung();
-//				nd.setEmail(r.getString(1));
-//				nd.setMatkhau(r.getString(2));
-//
+//			while (rs.next()) {
+//				nds = new NguoiDung();
+//				nds.setId(rs.getInt("id_nguoi_dung"));
+//				nds.setEmail(rs.getString(eml));
+//	            nds.setMatkhau(rs.getString(pass));
+//	            String role = rs.getString("ten_vai_tro");
+//	            VaiTro vaiTro = new VaiTro();
+//	            vaiTro.setTenvaitro(role);
+//	            nds.setVaiTro(vaiTro);
 //			}
-//
+//			rs.close();
+//	        ps.close();
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
-//		return nd;
+//		return nds;
 //	}
+
+	
+
 
 	
 }

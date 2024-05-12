@@ -63,7 +63,7 @@ input[type="text"], input[type="password"] {
 										name="txtemail" id="txtemail" class="form-control ">
 								</div>
 								<div class="input-group">
-									<label for="txtphone">Số điện thoại</label> <input type="text"
+									<label for="txtphone">Số điện thoại</label> <input type="text" maxlength="10"
 										name="txtphone" id="txtphone" class="form-control ">
 								</div>
 								<div class="input-group">

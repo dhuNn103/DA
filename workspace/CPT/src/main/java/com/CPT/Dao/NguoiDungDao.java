@@ -6,7 +6,7 @@ public interface NguoiDungDao {
 	
 	public boolean register(NguoiDung nd); 
 	
-
+//	public NguoiDung login(String eml, String pass);
 	
 	
 }

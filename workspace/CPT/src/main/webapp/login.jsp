@@ -48,6 +48,7 @@ input[type="text"], input[type="password"] {
 								<h5 class="text-center text-danger">${fMsg}</h5>
 								<c:remove var="fMsg" scope="session" />
 							</c:if>
+							
 
 							<form action="login" method="post" class="pt-5">
 								<div class="input-group">
@@ -56,7 +57,7 @@ input[type="text"], input[type="password"] {
 								</div>
 								<div class="input-group">
 									<label for="txtpassword">Mật khẩu</label> <input
-										type="password" name="txtpassword" id="txtpassword"
+										type="password" name="txtpassword" id="txtpassword" 
 										class="form-control ">
 									<button type="button" id="btnHide" class="toggle" onclick="myfunction()">
 										<i id="eyeShow" class="fa-solid fa-eye" ></i>

@@ -9,6 +9,7 @@ public class NguoiDung {
 	private String diachi;
 	private String matkhau;
 	private int vaitroid;
+//	private VaiTro vaiTro;
 	
 	
 	public NguoiDung() {
@@ -16,7 +17,13 @@ public class NguoiDung {
 		
 	}
 
-		
+//	public void setVaiTro(VaiTro vaiTro) {
+//        this.vaiTro = vaiTro;
+//    }
+//
+//    public VaiTro getVaiTro() {
+//        return vaiTro;
+//    }	
 	public int getId() {
 		return id;
 	}
