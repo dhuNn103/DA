@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home - admin</title>
+<%@include file="/all/css.jsp"%>
+<title>Trang chủ</title>
 </head>
 <body>
 	<jsp:include page="template/header.jsp"></jsp:include>

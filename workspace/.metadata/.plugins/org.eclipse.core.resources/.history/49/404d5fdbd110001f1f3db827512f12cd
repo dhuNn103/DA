@@ -1,0 +1,72 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+<style type="text/css">
+.bg {
+	background-color: black;
+}
+</style>
+</head>
+<body>
+
+	<nav id="sidebarMenu"
+		class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+		<div class="fixed-top pt-5 ">
+			<ul class="nav flex-column px-2">
+				<li class="nav-item fs-5"><a class="nav-link active"
+					aria-current="page" href="homeAdmin.jsp"> <i
+						class="fa-solid fa-house"></i> Trang chủ
+				</a></li>
+				<li class="nav-item fs-5"><a class="nav-link active"
+					aria-current="page" href="quanlyTaiKhoan.jsp"> <i
+						class="fa-solid fa-users"></i> Quản lý tài khoản
+				</a></li>
+				<li class="nav-item fs-5"><a class="nav-link"
+					href="quanlySanPham.jsp"> <i class="fa-brands fa-product-hunt"></i>
+						Quản lý sản phẩm
+				</a></li>
+				<li class="nav-item fs-5"><a class="nav-link"
+					href="quanlyTinTuc.jsp"> <i class="fa-solid fa-newspaper"></i>
+						Quản lý tin tức
+				</a></li>
+				<li class="nav-item fs-5"><a class="nav-link"
+					href="quanlyDanhMuc.jsp"> <i class="fa-solid fa-bars"></i> Quản
+						lý danh mục
+				</a></li>
+				<li class="nav-item fs-5"><a class="nav-link"
+					href="quanlyGioHang.jsp"> <i class="fa-solid fa-cart-shopping"></i>
+						Quản lý giỏ hàng
+				</a></li>
+				<li class="nav-item fs-5"><a class="nav-link"
+					href="quanlyThongKe.jsp"> <i class="fa-solid fa-chart-simple"></i>
+						Quản lý thống kê
+				</a></li>
+			</ul>
+			<hr>
+			<div class="dropdown">
+				<a href="#"
+					class="d-flex align-items-center text-white text-decoration-none dropdown-toggle show"
+					id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="true">
+					<img src="https://github.com/mdo.png" alt="" width="32" height="32"
+					class="rounded-circle me-2"> <strong>mdo</strong>
+				</a>
+				<ul class="dropdown-menu dropdown-menu-dark text-small shadow show"
+					aria-labelledby="dropdownUser1" data-popper-placement="top-start"
+					style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(0px, -34.4px);"
+					data-popper-reference-hidden="" data-popper-escaped="">
+					<li><a class="dropdown-item" href="#">New project...</a></li>
+					<li><a class="dropdown-item" href="#">Settings</a></li>
+					<li><a class="dropdown-item" href="#">Profile</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="#">Sign out</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</body>
+</html>

@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-		<h2>Section title</h2>
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 ">
+		<h2>Hê lo admin</h2>
 		<div class="table-responsive">
 			<table class="table table-striped table-sm">
 				<thead>

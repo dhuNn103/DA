@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<%@include file="/all/css.jsp"%>
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+	<nav id="sidebarMenu" class="sidebar bg-dark text-light">
+        <div class="container pt-3">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#"><i class="fas fa-home me-2"></i>Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user me-2"></i>Quản lý người dùng</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-cog me-2"></i>Cài đặt</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
