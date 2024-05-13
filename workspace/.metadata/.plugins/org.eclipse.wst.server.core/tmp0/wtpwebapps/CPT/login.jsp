@@ -52,11 +52,11 @@ input[type="text"], input[type="password"] {
 
 							<form action="login" method="post" class="pt-5">
 								<div class="input-group">
-									<label for="txtname">Tên đăng nhập</label> <input type="text"
+									<label for="txtname">Tên đăng nhập</label> <input type="text" 
 										name="txtemail" id="txtemail" class="form-control">
 								</div>
 								<div class="input-group">
-									<label for="txtpassword">Mật khẩu</label> <input
+									<label for="txtpassword">Mật khẩu</label> <input 
 										type="password" name="txtpassword" id="txtpassword" 
 										class="form-control ">
 									<button type="button" id="btnHide" class="toggle" onclick="myfunction()">

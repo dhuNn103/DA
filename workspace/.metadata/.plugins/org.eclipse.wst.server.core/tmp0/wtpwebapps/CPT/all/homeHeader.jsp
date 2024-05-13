@@ -74,10 +74,27 @@
 					<div class="row py-3">
 						<div class="col-md-8">
 							<div class="my-2">
+								<%
+								String loggedInUser = (String) session.getAttribute("emls");
+								%>
+								<%
+								if (loggedInUser == null) {
+								%>
 								<a href="login.jsp">
-									<button href="login.jsp" class="btn btn-primary">Đăng
+									<button class="btn btn-primary">Đăng
 										nhập/đăng ký</button>
 								</a>
+								<%
+								} else {
+								%>
+								<p><form action="LogoutServlet" method="post">
+										<input type="submit" value="Đăng xuất" class="bg-primary text-white ms-4">
+									</form>
+									Hi, <%=session.getAttribute("emls")%>	
+								</p>
+								<%
+								}
+								%>
 							</div>
 						</div>
 						<div class="col-md-2">

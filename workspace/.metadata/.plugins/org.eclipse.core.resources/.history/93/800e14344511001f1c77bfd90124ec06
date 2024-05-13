@@ -1,0 +1,15 @@
+<%@page import="com.CPT.Servlet.LogOutSerrvlet"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%@ page import="your_package_name.LogOutSerrvlet" %>
+    <% LogOutSerrvlet logoutServlet = new LogoutServlet(); %>
+    <% logoutServlet.doPost(request, response); %>
+</body>
+</html>

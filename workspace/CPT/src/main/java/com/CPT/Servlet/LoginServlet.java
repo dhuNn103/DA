@@ -61,6 +61,7 @@ public class LoginServlet extends HttpServlet {
 		String passwords = req.getParameter("txtpassword");
 		
 		HttpSession session = req.getSession();
+		session.setAttribute("emls", emails);
 
 		
 		try {

@@ -22,8 +22,8 @@
 									class="form-control">
 							</div>
 							<div class="text-center mt-3 d-flex justify-content-end">
-								<button class="btn btn-secondary">
-									<a href="login.jsp" class="nav-link">Hủy</a>
+								<button class="btn btn-secondary">Hủy
+<!-- 									<a href="login.jsp" class="nav-link">Hủy</a> -->
 								</button>
 								<button class="btn btn-primary mx-3">
 									<a href="layPass.jsp" class="nav-link">Lấy lại mật khẩu</a>

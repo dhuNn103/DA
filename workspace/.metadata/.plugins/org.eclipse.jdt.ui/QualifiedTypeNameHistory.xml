@@ -4,12 +4,10 @@
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.util.Base64"/>
     <fullyQualifiedTypeName name="org.apache.tomcat.util.codec.binary.Base64"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
     <fullyQualifiedTypeName name="java.lang.Error"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="com.CPT.Dao.NguoiDungDao"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="com.CPT.Dao.NguoiDungDaoImpl"/>
     <fullyQualifiedTypeName name="javax.management.relation.Role"/>
     <fullyQualifiedTypeName name="com.CPT.Dao.NguoiDungDao.VaiTro"/>
@@ -23,4 +21,6 @@
     <fullyQualifiedTypeName name="com.CPT.DB.DBConnect"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.CPT.Utils.MaHoa"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>
