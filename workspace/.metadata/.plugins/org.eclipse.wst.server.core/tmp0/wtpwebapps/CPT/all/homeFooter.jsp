@@ -57,24 +57,24 @@
 							<h6 class="text-uppercase fw-bold mb-4">Sản phẩm laptop</h6>
 							<div class="col-md-2">
 								<p>
-									<a href="lapacer.jsp" class="text-reset">Acer</a>
+									<a href="lapAcer.jsp" class="text-reset">Acer</a>
 								</p>
 								<p>
-									<a href="lapdell.jsp" class="text-reset">Dell</a>
+									<a href="lapDell.jsp" class="text-reset">Dell</a>
 								</p>
 								<p>
-									<a href="laplenovo.jsp" class="text-reset">Lenovo</a>
+									<a href="lapLenovo.jsp" class="text-reset">Lenovo</a>
 								</p>
 								<p>
-									<a href="lapasus.jsp" class="text-reset">Asus</a>
+									<a href="lapAsus.jsp" class="text-reset">Asus</a>
 								</p>
 								<p>
-									<a href="lapapple.jsp" class="text-reset">Apple</a>
+									<a href="macBook.jsp" class="text-reset">Apple</a>
 								</p>
 							</div>
 							<div class="col-md-2 mx-5">
 								<p>
-									<a href="laphp.jsp" class="text-reset">Hp</a>
+									<a href="lapHP" class="text-reset">Hp</a>
 								</p>
 							</div>
 						</div>
@@ -83,7 +83,7 @@
 						<!-- Links -->
 						<h6 class="text-uppercase fw-bold mb-4">Sản phẩm khác</h6>
 						<p>
-							<a href="linkkien.jsp" class="text-reset">Các sản phẩm khác</a>
+							<a href="sanphamkhac.jsp" class="text-reset">Các sản phẩm khác</a>
 						</p>
 					</div>
 					<div class="col-md-2 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">

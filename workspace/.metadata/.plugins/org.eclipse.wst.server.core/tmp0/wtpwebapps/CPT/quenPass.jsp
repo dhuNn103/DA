@@ -16,24 +16,49 @@
 						<div class="card-body bg-body-tertiary">
 							<h2 class="text-center">Quên Mật Khẩu</h2>
 							<br>
-							<div class="form-group">
-								<label for="fullname">Vui lòng nhập email hoặc số điện
-									thoại</label> <input type="text" name="fullname" id="fullname"
-									class="form-control">
-							</div>
-							<div class="text-center mt-3 d-flex justify-content-end">
-								<button class="btn btn-secondary">Hủy
-<!-- 									<a href="login.jsp" class="nav-link">Hủy</a> -->
-								</button>
-								<button class="btn btn-primary mx-3">
-									<a href="layPass.jsp" class="nav-link">Lấy lại mật khẩu</a>
-								</button>
-							</div>
+							<form action="reset_password" method="post" id="resetForm">
+								<div class="form-group">
+									<label for="fullname">Vui lòng nhập email 
+									</label> <input type="text" name="txtemail" id="txtemail"
+										class="form-control">
+								</div>
+								<div class="text-center mt-3 d-flex justify-content-end">
+									<button class="btn btn-secondary">
+										<a href="login.jsp" class="nav-link">Hủy</a>
+									</button>
+									<button class="btn btn-primary mx-3">
+										Lấy lại mật khẩu
+									</button>
+								</div>
+							</form>
+							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	
+	<script type="text/javascript">
+ 
+    $(document).ready(function() {
+        $("#resetForm").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                }      
+            },
+             
+            messages: {
+                email: {
+                    required: "Please enter email",
+                    email: "Please enter a valid email address"
+                }
+            }
+        });
+ 
+    });
+</script>
 </body>
 </html>

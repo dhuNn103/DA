@@ -88,7 +88,7 @@
 								} else {
 								%>
 								<p><form action="LogoutServlet" method="post">
-										<input type="submit" value="Đăng xuất" class="bg-primary text-white ms-4">
+										<button type="submit" class="bg-primary text-white ms-4">Đăng xuất</button>
 									</form>
 									Hi, <%=session.getAttribute("emls")%>	
 								</p>
@@ -141,19 +141,19 @@
 											<!-- 														hiệu Apple</a></li> --> <!-- 												<li><a class="dropdown-item " href="laphp.jsp">Thương -->
 											<!-- 														hiệu Hp</a></li> --> <!-- 											</ul>-->
 										</li>
-										<li><a class="dropdown-item " href="linkkien.jsp">Laptop
+										<li><a class="dropdown-item " href="lapAcer.jsp">Laptop
 												Acer</a></li>
-										<li><a class="dropdown-item " href="linkkien.jsp">Laptop
+										<li><a class="dropdown-item " href="lapDell.jsp">Laptop
 												Dell</a></li>
-										<li><a class="dropdown-item " href="linkkien.jsp">Laptop
+										<li><a class="dropdown-item " href="lapLenovo.jsp">Laptop
 												Lenovo</a></li>
-										<li><a class="dropdown-item " href="linkkien.jsp">Laptop
+										<li><a class="dropdown-item " href="lapAsus.jsp">Laptop
 												Asus</a></li>
-										<li><a class="dropdown-item " href="linkkien.jsp">Laptop
+										<li><a class="dropdown-item " href="lapHP.jsp">Laptop
 												HP</a></li>
-										<li><a class="dropdown-item " href="linkkien.jsp">Laptop
-												Lenovo</a></li>
-										<li><a class="dropdown-item " href="linkkien.jsp">Các
+										<li><a class="dropdown-item " href="macBook.jsp">MacBook
+												</a></li>
+										<li><a class="dropdown-item " href="sanphamkhac.jsp">Các
 												thiết bị sản phẩm khác</a></li>
 									</ul></li>
 							</ul>

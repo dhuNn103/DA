@@ -8,3 +8,6 @@ May 10, 2024 15:05:14.38 Created TensorFlow Lite XNNPACK delegate for CPU.
 May 10, 2024 17:45:15.34 [15984:13840:0510/174515.341:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
 May 10, 2024 20:45:21.82 [15984:13840:0510/204521.829:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
 May 10, 2024 22:34:42.22 [15984:9084:0510/223442.223:ERROR:gpu_process_host.cc(997)] GPU process exited unexpectedly: exit_code=34
+
+May 14, 2024 13:17:08.49 NEW SESSION
+May 14, 2024 13:17:08.50 Created TensorFlow Lite XNNPACK delegate for CPU.

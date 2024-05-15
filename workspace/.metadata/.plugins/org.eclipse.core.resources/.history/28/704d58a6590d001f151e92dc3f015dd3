@@ -1,7 +1,0 @@
-package com.CPT.Servlet;
-
-import javax.servlet.http.HttpServlet;
-
-public class NguoiDungServlet extends HttpServlet{
-	
-}
