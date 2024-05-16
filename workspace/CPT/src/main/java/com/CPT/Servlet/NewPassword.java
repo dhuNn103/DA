@@ -16,9 +16,8 @@ import com.CPT.DB.DBConnect;
 import com.CPT.Utils.MaHoa;
 
 @WebServlet("/new_password")
-public class NewPassword extends HttpServlet{
+public class NewPassword extends HttpServlet {
 
-	
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -27,26 +26,32 @@ public class NewPassword extends HttpServlet{
 		String newPassword = req.getParameter("txtpasss");
 		String confPassword = req.getParameter("comfirm_pass");
 		RequestDispatcher dispatcher = null;
-		if (newPassword != null && confPassword != null && newPassword.equals(confPassword)) {
 
-			try {
-				String mhdPass = MaHoa.toSha1(newPassword);
-				Connection con = DBConnect.getConnect();
-				PreparedStatement pst = con.prepareStatement("update nguoi_dung set mat_khau = ? where email = ? ");
-				pst.setString(1, mhdPass);
-				pst.setString(2, (String) session.getAttribute("email"));
+		if (newPassword.isEmpty() || confPassword.isEmpty()) {
+			session.setAttribute("fail", "Vui lòng nhập mật khẩu mới!");
+			resp.sendRedirect("newPass.jsp");
+		} else {
+			if (newPassword != null && confPassword != null && newPassword.equals(confPassword)) {
 
-				int rowCount = pst.executeUpdate();
-				if (rowCount > 0) {
-					req.setAttribute("status", "resetSuccess");
-					dispatcher = req.getRequestDispatcher("login.jsp");
-				} else {
-					req.setAttribute("status", "resetFailed");
-					dispatcher = req.getRequestDispatcher("login.jsp");
+				try {
+					String mhdPass = MaHoa.toSha1(newPassword);
+					Connection con = DBConnect.getConnect();
+					PreparedStatement pst = con.prepareStatement("update nguoi_dung set mat_khau = ? where email = ? ");
+					pst.setString(1, mhdPass);
+					pst.setString(2, (String) session.getAttribute("email"));
+
+					int rowCount = pst.executeUpdate();
+					if (rowCount > 0) {
+						req.setAttribute("status", "resetSuccess");
+						dispatcher = req.getRequestDispatcher("login.jsp");
+					} else {
+						req.setAttribute("status", "resetFailed");
+						dispatcher = req.getRequestDispatcher("login.jsp");
+					}
+					dispatcher.forward(req, resp);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
-				dispatcher.forward(req, resp);
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
 	}

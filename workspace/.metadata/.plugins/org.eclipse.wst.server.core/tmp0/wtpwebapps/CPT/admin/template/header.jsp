@@ -10,6 +10,28 @@
 <%@include file="/all/css.jsp"%>
 </head>
 <body>
+	<header class="py-3 mb-3 border-bottom sticky-top px-5 bg-success">
+		<div
+			class="container-fluid d-grid gap-3 align-items-center text-white"
+			style="grid-template-columns: 1fr 2fr;">
+			<h5 class="ps-5 pt-1">Trang quản trị</h5>
+			<div class="d-flex align-items justify-content-end">
+				<div class="flex-shrink-0 dropdown">
+					<a href="#"
+						class="d-block link-dark text-decoration-none dropdown-toggle text-white"
+						id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+						<i class="fa-solid fa-user"></i>
+					</a>
+					<ul class="dropdown-menu text-small shadow"
+						aria-labelledby="dropdownUser2">
+						<li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
+						<li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+
 	<!-- 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"> -->
 	<!--         <div class="container"> -->
 	<!--             <a class="navbar-brand" href="#">Trang quản trị</a> -->
@@ -36,32 +58,5 @@
 	<!--             </div> -->
 	<!--         </div> -->
 	<!--     </nav> -->
-
-	
-
-	<header class="py-3 mb-3 border-bottom sticky-top px-5 bg-success">
-		<div class="container-fluid d-grid gap-3 align-items-center"
-			style="grid-template-columns: 1fr 2fr;">
-			<h5 class="ps-5 pt-1">Trang quản trị</h5>
-
-			<div class="d-flex align-items justify-content-end">
-
-				<div class="flex-shrink-0 dropdown">
-					<a href="#"
-						class="d-block link-dark text-decoration-none dropdown-toggle"
-						id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class="fa-solid fa-user"></i>
-						
-					</a>
-					<ul class="dropdown-menu text-small shadow"
-						aria-labelledby="dropdownUser2">
-						<li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
-						<li><a class="dropdown-item" href="#">Đăng xuất</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</header>
-
 </body>
 </html>

@@ -17,34 +17,29 @@ public class ValidateOTP extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int value=Integer.parseInt(req.getParameter("otp"));
-		HttpSession session=req.getSession();
-		int otp=(int)session.getAttribute("otp");
+		String otpValue = req.getParameter("otp");
+		HttpSession session = req.getSession();
+		Integer otp = (Integer) session.getAttribute("otp");
 		
-		
-		
-		RequestDispatcher dispatcher=null;
-		
-		
-		if (value==otp) 
-		{
-			
-				req.setAttribute("email", req.getParameter("email"));
+		RequestDispatcher dispatcher = null;
+
+		if ( otpValue.isEmpty()) {
+			session.setAttribute("failMsg", "Vui lòng nhập đầy đủ thông tin!");
+			resp.sendRedirect("OTP.jsp");
+		} else {
+			int value = Integer.parseInt(otpValue);
+
+			if (value == otp) {
+				req.setAttribute("email", session.getAttribute("email"));
 				req.setAttribute("status", "success");
-			  dispatcher=req.getRequestDispatcher("newPass.jsp");
-			dispatcher.forward(req, resp);
-			
+				dispatcher = req.getRequestDispatcher("newPass.jsp");
+				dispatcher.forward(req, resp);
+			} else {
+				req.setAttribute("message", "Mã OTP sai");
+				dispatcher = req.getRequestDispatcher("OTP.jsp");
+				dispatcher.forward(req, resp);
+			}
 		}
-		else
-		{
-			req.setAttribute("message","wrong otp");
-			
-		   dispatcher=req.getRequestDispatcher("OTP.jsp");
-			dispatcher.forward(req, resp);
-		
-		}
-		
-	
 	}
 
 }

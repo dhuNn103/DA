@@ -22,9 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet("/reset_password")
-public class ResetPasswordServlet extends HttpServlet{
+public class ResetPasswordServlet extends HttpServlet {
 
-	
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -33,40 +32,49 @@ public class ResetPasswordServlet extends HttpServlet{
 		RequestDispatcher dispatcher = null;
 		int maotp = 0;
 		HttpSession mysession = req.getSession();
-		
-		if(email != null || !email.equals("")) {
-			Random random = new  Random();
-			maotp = random.nextInt();
-			
-			String to = email;
-			Properties properties = new Properties();
-	        properties.put("mail.smtp.host", "smtp.gmail.com");
-	        properties.put("mail.smtp.socketFactory.port", "465");
-	        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-	        properties.put("mail.smtp.auth", "true");
-	        properties.put("mail.smtp.port", "465");
-	        
-	        Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
-	        	protected PasswordAuthentication getPasswordAuthentication() {
-	        		return new PasswordAuthentication("apihacking465@gmail.com", "nwmhpeqeokscgdnb");
-	        	}
-	        });
-	        try {
-				MimeMessage message = new MimeMessage(session);
-				message.setFrom(new InternetAddress(email));
-				message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-				message.setSubject("Cụ Đào Văn Hùng");
-				message.setText("Mã OTP của bạn là: " + maotp );
-				Transport.send(message);
-			} catch (MessagingException e) {
-				throw new RuntimeException(e);
+
+		if (email.isEmpty()) {
+			mysession.setAttribute("faileMsg", "Vui lòng nhập email, không được để chống!");
+			resp.sendRedirect("quenPass.jsp");
+		} else {
+			if (email != null) {
+				Random random = new Random();
+				maotp = random.nextInt();
+
+				String to = email;
+				Properties properties = new Properties();
+				properties.put("mail.smtp.host", "smtp.gmail.com");
+				properties.put("mail.smtp.socketFactory.port", "465");
+				properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+				properties.put("mail.smtp.auth", "true");
+				properties.put("mail.smtp.port", "465");
+
+				Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication("apihacking465@gmail.com", "nwmhpeqeokscgdnb");
+					}
+				});
+				try {
+					MimeMessage message = new MimeMessage(session);
+					message.setFrom(new InternetAddress(email));
+					message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+					message.setSubject("Laptop ALAPTER");
+					message.setText("Mã OTP của bạn là: " + maotp);
+					Transport.send(message);
+				} catch (MessagingException e) {
+					throw new RuntimeException(e);
+				}
+				dispatcher = req.getRequestDispatcher("OTP.jsp");
+				req.setAttribute("message", "Mã OTP đã được gửi đến gmail của bạn");
+				mysession.setAttribute("otp", maotp);
+				mysession.setAttribute("email", email);
+				dispatcher.forward(req, resp);
 			}
-	        dispatcher = req.getRequestDispatcher("OTP.jsp");
-	        req.setAttribute("message", "Mã OTP đã được gửi đến gmail của bạn");
-	        mysession.setAttribute("otp", maotp);
-	        mysession.setAttribute("email", email);
-	        dispatcher.forward(req, resp);
+
 		}
+	}
+}
+
 //		
 //		String emailString = req.getParameter("txtemail");
 //	    RequestDispatcher dispatcher = null;
@@ -124,6 +132,6 @@ public class ResetPasswordServlet extends HttpServlet{
 //	        req.setAttribute("message", "Mã OTP đã được gửi đến các địa chỉ email của bạn");
 //	        dispatcher.forward(req, resp);
 //	    }
-	}
-	
-}
+//	}
+//
+//}

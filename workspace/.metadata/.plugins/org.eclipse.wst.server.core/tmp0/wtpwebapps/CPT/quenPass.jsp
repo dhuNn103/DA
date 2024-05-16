@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +18,10 @@
 						<div class="card-body bg-body-tertiary">
 							<h2 class="text-center">Quên Mật Khẩu</h2>
 							<br>
+							<c:if test="${not empty faileMsg}">
+								<p class="text-center text-danger">${faileMsg}</p>
+								<c:remove var="faileMsg" scope="session" />
+							</c:if>
 							<form action="reset_password" method="post" id="resetForm">
 								<div class="form-group">
 									<label for="fullname">Vui lòng nhập email 

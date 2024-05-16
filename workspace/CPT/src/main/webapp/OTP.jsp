@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +18,14 @@
 						<div class="card-body bg-body-tertiary">
 							<h2 class="text-center">Nhập mã bảo mật</h2>
 							<br>
-							<%
-							if (request.getAttribute("message") != null) {
-								out.print("<p class='text-danger ml-1'>" + request.getAttribute("message") + "</p>");
-
-							}
-							%>
+							<c:if test="${not empty failMsg}">
+								<p class="text-center text-danger">${failMsg}</p>
+								<c:remove var="failMsg" scope="session" />
+							</c:if>
+							<c:if test="${not empty message}">
+								<p class="text-center text-success">${message}</p>
+								<c:remove var="message" scope="session" />
+							</c:if>
 							<form action="validateOTP" method="post">
 								<div class="form-group">
 									<label for="fullname">Vui lòng kiểm tra trong email. Mã
