@@ -1,0 +1,57 @@
+package com.CPT.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.CPT.DB.DBConnect;
+import com.CPT.Entities.Giohang;
+
+public class GiohangImpl implements GiohangDao {
+	private Connection con = null;
+
+	public List<Giohang> getCartByAccountID(int id_nguoi_dung) {
+	   	 List<Giohang> list = new ArrayList<>();
+	       String query = "select * from gh where id_nguoi_dung = ?";
+	       try {
+	    	   new DBConnect();
+				con = DBConnect.getConnect();
+				PreparedStatement	ps = con.prepareStatement(query);
+				ps.setInt(1, id_nguoi_dung);
+				ResultSet rs = ps.executeQuery();
+	           while (rs.next()) {
+	               list.add(new Giohang(rs.getInt("ghid"),
+	                       rs.getInt("id_nguoi_dung"),
+	                       rs.getString("anh"),
+	                       rs.getString("sanpham"),
+	                       rs.getInt("dongia"),
+	                       rs.getInt("soluong"),
+	                       rs.getInt("thanhtien")));
+	           }
+	       } catch (Exception e) {
+	       }
+	       return list;
+	   }
+		public void editsoluonggh(int id_nguoi_dung, int ghid, int soluong) {
+	        String query = "update gh set [soluong]=?\r\n"
+	        		+ "where [idnguoidung]=? and [ghid]=?";
+	        try {
+	        	 new DBConnect();
+	 			con = DBConnect.getConnect();
+	 			PreparedStatement	ps = con.prepareStatement(query);
+	            ps.setInt(1, soluong);
+	            ps.setInt(2, id_nguoi_dung);
+	            ps.setInt(3, ghid);
+	            ps.executeUpdate();
+	        } catch (Exception e) {
+	        }
+	    }
+		@Override
+		public List<Giohang> getCartByAccountId(int id_nguoi_dung) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+}
+

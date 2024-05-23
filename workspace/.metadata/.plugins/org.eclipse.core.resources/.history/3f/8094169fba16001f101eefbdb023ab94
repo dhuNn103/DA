@@ -1,0 +1,15 @@
+package com.CPT.Dao;
+
+import java.util.List;
+
+import com.CPT.Entities.NguoiDung;
+
+public interface NguoiDungDao {
+	
+	public boolean register(NguoiDung nd); 
+	
+	public List<NguoiDung> getNguoiDungAll();
+	
+	public List<NguoiDung> searchByName(String search);
+	
+}

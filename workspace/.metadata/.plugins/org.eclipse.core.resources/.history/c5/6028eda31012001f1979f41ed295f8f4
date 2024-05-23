@@ -1,9 +1,0 @@
-package com.CPT.Servlet;
-
-
- 
-
-
-public class ResetPasswordServlet extends HttpServlet{
-	
-}

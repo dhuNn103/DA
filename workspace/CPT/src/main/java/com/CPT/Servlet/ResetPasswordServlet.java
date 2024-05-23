@@ -39,7 +39,7 @@ public class ResetPasswordServlet extends HttpServlet {
 		} else {
 			if (email != null) {
 				Random random = new Random();
-				maotp = random.nextInt();
+				maotp = random.nextInt(123456);
 
 				String to = email;
 				Properties properties = new Properties();

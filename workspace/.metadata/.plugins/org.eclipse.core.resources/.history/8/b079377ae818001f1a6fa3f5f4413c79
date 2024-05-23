@@ -1,0 +1,69 @@
+package com.CPT.Entities;
+
+public class Giohang {
+	private int ghid;
+	private int id_nguoi_dung;
+	private String sanpham;
+	private String anh;
+	private int dongia;
+	private int soluong;
+	private int thanhtien;
+	public Giohang() {
+		
+	}
+	public Giohang(int ghid,int id_nguoi_dung,String sanpham, String anh, int dongia, int soluong, int thanhtien ) {
+		super();
+		this.ghid = ghid;
+		this.id_nguoi_dung = id_nguoi_dung;
+		this.sanpham = sanpham;
+		this.dongia = dongia;
+		this.soluong = soluong;
+		this.thanhtien = thanhtien;
+		this.anh = anh;
+		
+	}
+	public int getGhid() {
+		return ghid;
+	}
+	public void setGhid(int ghid) {
+		this.ghid = ghid;
+	}
+	public int getId_nguoi_dung() {
+		return id_nguoi_dung;
+	}
+	public void setId_nguoi_dung(int id_nguoi_dung) {
+		this.id_nguoi_dung = id_nguoi_dung;
+	}
+	public String getSanpham() {
+		return sanpham;
+	}
+	public void setSanpham(String sanpham) {
+		this.sanpham = sanpham;
+	}
+	public String getAnh() {
+		return anh;
+	}
+	public void setAnh(String anh) {
+		this.anh = anh;
+	}
+	public int getDongia() {
+		return dongia;
+	}
+	public void setDongia(int dongia) {
+		this.dongia = dongia;
+	}
+	public int getSoluong() {
+		return soluong;
+	}
+	public void setSoluong(int soluong) {
+		this.soluong = soluong;
+	}
+	public int getThanhtien() {
+		return thanhtien;
+	}
+	public void setThanhtien(int thanhtien) {
+		this.thanhtien = thanhtien;
+	}
+	
+
+}

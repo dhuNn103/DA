@@ -1,7 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,17 +16,27 @@
 			style="grid-template-columns: 1fr 2fr;">
 			<h5 class="ps-5 pt-1">Trang quản trị</h5>
 			<div class="d-flex align-items justify-content-end">
+				<%
+				String loggedInUser = (String) session.getAttribute("emls");
+				%>
+				Hi,
+				<%=session.getAttribute("emls")%> 
 				<div class="flex-shrink-0 dropdown">
 					<a href="#"
 						class="d-block link-dark text-decoration-none dropdown-toggle text-white"
 						id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class="fa-solid fa-user"></i>
+						<i class="fa-solid fa-user ps-3"></i>
 					</a>
-					<ul class="dropdown-menu text-small shadow"
-						aria-labelledby="dropdownUser2">
-						<li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
-						<li><a class="dropdown-item" href="#">Đăng xuất</a></li>
-					</ul>
+					<form action="../LogoutServlet" method="post">
+						<ul class="dropdown-menu text-small shadow"
+							aria-labelledby="dropdownUser2">
+							<li><a class="dropdown-item" href="ThongTinCaNhan.jsp">Thông tin tài
+									khoản</a></li>
+							<li><a class="dropdown-item">
+									<button type="submit" class="px-5">Đăng xuất</button>
+							</a></li>
+						</ul>
+					</form>
 				</div>
 			</div>
 		</div>

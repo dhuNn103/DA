@@ -11,7 +11,7 @@
 	<%@include file="/admin/template/header.jsp"%>
 	<%@include file="/admin/template/sidebar.jsp"%>
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-		<h4 class="pt-3">Danh sách tin tức</h4>
+		<h4 class="pt-3">Thông tin cá nhân</h4>
 		<div class="mx-5">
 			<a href="add_sp.jsp" class="btn btn-primary">Thêm mới sản phẩm</a>
 		</div>

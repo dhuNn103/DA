@@ -1,0 +1,14 @@
+package com.CPT.Dao;
+
+import java.util.List;
+
+import com.CPT.Entities.Giohang;
+
+public interface GiohangDao {
+	public List<Giohang> getghbytk(int id_nguoi_dung);
+	public Lists<Giohang> getAll();
+	public Giohang getById(int ghid);
+	public boolean delete(int ghid);
+	public List<Giohang> searchByName(String txtSearch);
+
+}

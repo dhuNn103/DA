@@ -1,0 +1,41 @@
+package com.CPT.Dao;
+
+import java.sql.Connection;
+import java.util.List;
+
+import com.CPT.DB.DBConnect;
+import com.CPT.Entities.Giohang;
+
+public class GiohangImpl implements GiohangDao {
+	private Connection con = null;
+
+	public GiohangImpl() {
+		this.con = DBConnect.getConnect();
+	}
+
+	@Override
+	public List<Giohang> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ctsp getById(int ghid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean delete(int ghid) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<kqsearch> searchByName(String txtSearch) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
+

@@ -36,11 +36,9 @@
 									<div class="text-primary p-2 col-5">
 										<a class="nav-link" href="quenPass.jsp">Bạn chưa có mã?</a>
 									</div>
-									<div class="text-center mt-2 col-7">
-										<button class="btn btn-secondary">
-											<a href="login.jsp" class="nav-link">Hủy</a>
-										</button>
-										<button class="btn btn-primary">Tiếp tục</button>
+									<div class="mt-2 col-7 d-flex">
+										<a href="login.jsp" class="btn btn-secondary m-1">Hủy</a>
+										<button class="btn btn-primary m-1">Tiếp tục</button>
 									</div>
 								</div>
 

@@ -1,0 +1,46 @@
+package com.CPT.Admin.Servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.CPT.Entities.NguoiDung;
+
+@WebServlet("/")
+public class EditNguoiDung extends HttpServlet{
+
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html");
+		resp.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
+		
+		try {
+			int id = Integer.parseInt(req.getParameter("id"));
+			String ten = req.getParameter("");
+			String eml = req.getParameter("");
+			String SDT = req.getParameter("");
+			String dichi = req.getParameter("");
+			String mk = req.getParameter("");
+			int idvaitro = Integer.parseInt(req.getParameter(""));
+			
+			NguoiDung nd =  new NguoiDung();
+			nd.setId(id);
+			nd.setHoten(ten);
+			nd.setEmail(eml);
+			nd.setSodienthoai(SDT);
+			nd.setDiachi(dichi);
+			nd.setMatkhau(mk);
+			nd.setVaitroid(idvaitro);
+		} catch (Exception e) {
+			e.printStackTrace();			
+		}
+	}
+	
+}

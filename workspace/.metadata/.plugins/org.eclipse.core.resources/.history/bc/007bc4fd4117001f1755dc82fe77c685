@@ -1,0 +1,11 @@
+package com.CPT.Dao;
+
+import java.util.List;
+
+public interface GiohangDao {
+	public List<listgh> getAll();
+	public ctsp getById(int ghid);
+	public boolean delete(int ghid);
+	public List<kqsearch> searchByName(String txtSearch);
+
+}

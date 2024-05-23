@@ -1,0 +1,111 @@
+package com.CPT.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.CPT.DB.DBConnect;
+import com.CPT.Entities.Giohang;
+
+public class GiohangImpl implements GiohangDao {
+	private Connection con = null;
+
+	public GiohangImpl() {
+		this.con = DBConnect.getConnect();
+	}
+
+	@Override
+	public List<Giohang> getghbytk(int id_nguoi_dung) {
+		
+		List<Giohang> data=new ArrayList<>();
+		try {
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery("select * from gh where id_nguoi_dung = ?");
+			while (rs.next()) {
+				Giohang l=new Giohang(rs.getInt("ghid"),
+						rs.getInt("id_nguoi_dung"),
+						rs.getString("sanpham"),
+						rs.getString("anh"),
+						rs.getInt("dongia"),
+						rs.getInt("soluong"),
+						rs.getInt("thanhtien"));
+				data.add(l);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
+
+	@Override
+	public Giohang getById(int ghid) {
+		
+		Giohang gh =null;
+		try {
+			PreparedStatement pst = con.prepareStatement("select * from gh where ghid=?");
+			pst.setInt(1, ghid);
+			ResultSet rs = pst.executeQuery();
+			if (rs.next()) {
+				gh=new Giohang(rs.getInt("ghid"),
+						rs.getInt("id_nguoi_dung"),
+						rs.getString("sanpham"),
+						rs.getString("anh"),
+						rs.getInt("dongia"),
+						rs.getInt("soluong"),
+						rs.getInt("thanhtien") );
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return gh;
+	}
+
+	@Override
+	public boolean delete(int ghid) {		
+		
+		try {
+			PreparedStatement pst = con.prepareStatement("delete from gh where ghid=?");
+			pst.setInt(1, ghid);
+			return pst.executeUpdate()>0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+	@Override
+	public List<Giohang> searchByName(String txtSearch) {
+		
+		List<Giohang> list=new ArrayList<>();
+		try {
+			PreparedStatement pst = con.prepareStatement("select * from gh where [sanpham] like ?");
+			pst.setString(1, "%"+txtSearch+"%");
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				list.add(new Giohang(rs.getInt("ghid"),
+						rs.getInt("id_nguoi_dung"),
+						rs.getString("sanpham"),
+						rs.getString("anh"),
+						rs.getInt("dongia"),
+						rs.getInt("soluong"),
+						rs.getInt("thanhtien")));
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public List<Giohang> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
+

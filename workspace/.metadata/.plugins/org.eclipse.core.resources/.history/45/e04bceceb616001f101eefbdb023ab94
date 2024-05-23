@@ -1,0 +1,48 @@
+package com.CPT.Admin.Servlet;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.CPT.DB.DBConnect;
+import com.CPT.Dao.NguoiDungDao;
+import com.CPT.Dao.NguoiDungDaoImpl;
+import com.CPT.Entities.NguoiDung;
+
+@WebServlet("/search")
+public class SearchNguoiDung extends HttpServlet {
+	Connection conn = null;
+	private static final long serialVersionUID = 1L;
+	private NguoiDungDao ndDao;
+
+	@Override
+	public void init() throws ServletException {
+		ndDao = new NguoiDungDaoImpl(DBConnect.getConnect());
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String name = req.getParameter("txtsearch");
+		List<NguoiDung> nds = ndDao.searchByName(name);
+		req.setAttribute("nxx", nds);
+		RequestDispatcher rs = req.getRequestDispatcher("../quanlyTaiKhoan.jsp");
+		rs.forward(req, resp);
+	}
+
+//	@Override
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		String name = req.getParameter("txtsearch");
+//		List<NguoiDung> nds = ndDao.searchByName(name);
+//		req.setAttribute("nxx", nds);
+//		RequestDispatcher rs = req.getRequestDispatcher("../quanlyTaiKhoan.jsp");
+//		rs.forward(req, resp);
+//	}
+
+}

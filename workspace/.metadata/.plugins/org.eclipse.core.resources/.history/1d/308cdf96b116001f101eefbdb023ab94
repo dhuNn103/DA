@@ -1,0 +1,37 @@
+package com.CPT.Admin.Servlet;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.CPT.DB.DBConnect;
+import com.CPT.Dao.NguoiDungDao;
+import com.CPT.Dao.NguoiDungDaoImpl;
+import com.CPT.Entities.NguoiDung;
+
+
+public class SearchUsser extends HttpServlet{
+
+	private static final long serialVersionUID = 1L;
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String name = req.getParameter("txtsearch");
+		
+		if(name != null) {
+			name = "";
+		}
+		System.out.println(name);
+		List<NguoiDung> nds = NguoiDungDao.query(name);
+		req.setAttribute("nxx", nds);
+		RequestDispatcher rs = req.getRequestDispatcher("quanlyTaiKhoan.jsp");
+		rs.forward(req, resp);
+	}
+}

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +18,6 @@
 .card-ho:hover {
 	background-color: #f2f2f2;
 }
-
 </style>
 </head>
 <body>
@@ -34,8 +33,9 @@
 								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Dell inspiron 5420</p>
 							<p class="text-danger">14.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
+							<div class="d-flex mx-4">
+								<a href="#" class="btn btn-success p-2 m-2">Chi tiết</a>
+								<a href="#" class="btn btn-danger p-2 m-2">Giỏ hàng</a>
 							</div>
 						</div>
 					</div>
@@ -44,12 +44,13 @@
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/as1.jpg" style="width: 250px; height: 250px"
-								class="image-thumblin">
+							<img alt="" src="img/content/as1.jpg"
+								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Asus zenbook 15</p>
 							<p class="text-danger">24.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
+							<div class="d-flex mx-4">
+								<a href="#" class="btn btn-success p-2 m-2">Chi tiết</a>
+								<a href="#" class="btn btn-danger p-2 m-2">Giỏ hàng</a>
 							</div>
 						</div>
 					</div>
@@ -58,12 +59,13 @@
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/ac1.jpg" style="width: 250px; height: 250px"
-								class="image-thumblin">
+							<img alt="" src="img/content/ac1.jpg"
+								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Acer GHSHT-1524 Hybird</p>
 							<p class="text-danger">24.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
+							<div class="d-flex mx-4">
+								<a href="#" class="btn btn-success p-2 m-2">Chi tiết</a>
+								<a href="#" class="btn btn-danger p-2 m-2">Giỏ hàng</a>
 							</div>
 						</div>
 					</div>
@@ -72,12 +74,13 @@
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/hp1.jpg" style="width: 250px; height: 250px"
-								class="image-thumblin">
+							<img alt="" src="img/content/hp1.jpg"
+								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Hp victor GHSHT-1524 Hybird</p>
 							<p class="text-danger">40.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
+							<div class="d-flex mx-4">
+								<a href="#" class="btn btn-success p-2 m-2">Chi tiết</a>
+								<a href="#" class="btn btn-danger p-2 m-2">Giỏ hàng</a>
 							</div>
 						</div>
 					</div>
@@ -94,8 +97,8 @@
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/hp1.jpg" style="width: 250px; height: 250px"
-								class="image-thumblin">
+							<img alt="" src="img/content/hp1.jpg"
+								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Hp victor GHSHT-1524 Hybird</p>
 							<p class="text-danger">40.390.000đ</p>
 							<div class="row col-5 mx-auto">
@@ -122,8 +125,8 @@
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/le1.jpg" style="width: 250px; height: 250px"
-								class="image-thumblin">
+							<img alt="" src="img/content/le1.jpg"
+								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Lenovo Thinkbook G3 pro</p>
 							<p class="text-danger">30.390.000đ</p>
 							<div class="row col-5 mx-auto">
@@ -136,8 +139,8 @@
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/as1.jpg" style="width: 250px; height: 250px"
-								class="image-thumblin">
+							<img alt="" src="img/content/as1.jpg"
+								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Asus zenbook 15</p>
 							<p class="text-danger">24.390.000đ</p>
 							<div class="row col-5 mx-auto">
@@ -152,8 +155,8 @@
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/hp1.jpg" style="width: 250px; height: 250px"
-								class="image-thumblin">
+							<img alt="" src="img/content/hp1.jpg"
+								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Hp victor GHSHT-1524 Hybird</p>
 							<p class="text-danger">40.390.000đ</p>
 							<div class="row col-5 mx-auto">
@@ -180,8 +183,8 @@
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/le1.jpg" style="width: 250px; height: 250px"
-								class="image-thumblin">
+							<img alt="" src="img/content/le1.jpg"
+								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Lenovo Thinkbook G3 pro</p>
 							<p class="text-danger">30.390.000đ</p>
 							<div class="row col-5 mx-auto">
@@ -190,12 +193,14 @@
 						</div>
 					</div>
 				</div>
-
+				
+				
+					
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/as1.jpg" style="width: 250px; height: 250px"
-								class="image-thumblin">
+							<img alt="" src="img/content/as1.jpg"
+								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Asus zenbook 15</p>
 							<p class="text-danger">24.390.000đ</p>
 							<div class="row col-5 mx-auto">

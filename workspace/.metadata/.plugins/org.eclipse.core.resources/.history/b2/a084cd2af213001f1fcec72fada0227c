@@ -1,0 +1,59 @@
+package com.CPT.Admin.Servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
+
+import com.CPT.DB.DBConnect;
+import com.CPT.Dao.SanPhamDaoImpl;
+import com.CPT.Entities.SanPham;
+
+@WebServlet("add_sanpham")
+@MultipartConfig
+public class ThemSanPham extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			String iddm = req.getParameter("iddm");
+			Integer iddanhmuc = (Integer.parseInt(iddm));
+			String tensanpham = req.getParameter("names");
+			String giacu = req.getParameter("giacu");
+			String giamoi = req.getParameter("giamoi");
+			String mota = req.getParameter("mota");
+			Part pt = req.getPart("ha");
+			String filename = pt.getSubmittedFileName();
+			String ngaytao = req.getParameter("ngaytao");
+			String ngaysua = req.getParameter("ngaysua");
+			
+
+			SanPham s = new SanPham(iddanhmuc, tensanpham, giacu, giamoi, mota,filename, ngaytao, ngaysua);
+
+			SanPhamDaoImpl dao = new SanPhamDaoImpl(DBConnect.getConnect());
+			boolean f = dao.addSanPham(s);
+
+			HttpSession session = req.getSession();
+
+			if (f) {
+				session.setAttribute("succMg", "add-sp successfull");
+				resp.sendRedirect("admin/ThemSP.jsp");
+			} else {
+				session.setAttribute("faileMg", "Faileding!");
+				resp.sendRedirect("admin/ThemSP.jsp");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

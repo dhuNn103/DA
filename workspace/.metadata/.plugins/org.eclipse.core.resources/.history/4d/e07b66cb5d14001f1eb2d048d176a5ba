@@ -1,0 +1,48 @@
+package com.CPT.Admin.Servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class AddSanPham extends HttpServlet{
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		 String idDanhMuc = request.getParameter("id_danhmuc");
+	        String tenSanPham = request.getParameter("tensanpham");
+	        Part filePart = request.getPart("hinhanh");
+
+	        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+	        String uploadDir = getServletContext().getRealPath("") + File.separator + "uploads";
+	        File uploadDirFile = new File(uploadDir);
+	        if (!uploadDirFile.exists()) {
+	            uploadDirFile.mkdir();
+	        }
+	        
+	        File file = new File(uploadDir, fileName);
+	        try (var inputStream = filePart.getInputStream()) {
+	            Files.copy(inputStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+	        }
+
+	        try {
+	            Class.forName("com.mysql.cj.jdbc.Driver");
+	            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yourdatabase", "root", "password")) {
+	                String sql = "INSERT INTO sanpham (id_danhmuc, tensanpham, hinhanh) VALUES (?, ?, ?)";
+	                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+	                    stmt.setString(1, idDanhMuc);
+	                    stmt.setString(2, tenSanPham);
+	                    stmt.setString(3, fileName);
+	                    stmt.executeUpdate();
+	                }
+	            }
+	        } catch (ClassNotFoundException | SQLException e) {
+	            e.printStackTrace();
+	        }
+
+	        response.sendRedirect("jsp/addProduct.jsp");
+	}
+
+}

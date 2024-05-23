@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <%@include file="/all/css.jsp"%>
+
 <title>Register - form</title>
 <style type="text/css">
 .input-group {
@@ -35,71 +36,67 @@ input[type="text"], input[type="password"] {
 </style>
 </head>
 <body>
-	<section>
-		<div class="container mt-4 pt-5">
-			<div class="row ">
-				<div class="col-12 col-sm-8 col-md-5 m-auto">
-					<div class="card mx-5">
-						<div class="card-body bg-body-tertiary">
-							<h2 class="text-center">Đăng Ký Tài Khoản</h2>
+	<input type="hidden" id="status"
+		value="<%=request.getAttribute("status")%>">
+	<div class="container mt-4 pt-5">
+		<div class="row ">
+			<div class="col-12 col-sm-8 col-md-5 m-auto">
+				<div class="card mx-5">
+					<div class="card-body bg-body-tertiary">
+						<h2 class="text-center">Đăng Ký Tài Khoản</h2>
 
-							<c:if test="${not empty sucMsg}">
-								<p class="text-center text-success">${sucMsg}</p>
-								<c:remove var="sucMsg" scope="session" />
-							</c:if>
+						<c:if test="${not empty faileMsg}">
+							<p class="text-center text-danger">${faileMsg}</p>
+							<c:remove var="faileMsg" scope="session" />
+						</c:if>
 
-							<c:if test="${not empty faileMsg}">
-								<p class="text-center text-danger">${faileMsg}</p>
-								<c:remove var="faileMsg" scope="session" />
-							</c:if>
-
-							<form action="register" method="post">
-								<div class="input-group">
-									<label for="txtname">Họ tên</label> <input type="text"
-										name="txtname" id="txtname" class="form-control ">
-								</div>
-								<div class="input-group">
-									<label for="txtemail">Email</label> <input type="text"
-										name="txtemail" id="txtemail" class="form-control ">
-								</div>
-								<div class="input-group">
-									<label for="txtphone">Số điện thoại</label> <input type="text" maxlength="10"
-										name="txtphone" id="txtphone" class="form-control ">
-								</div>
-								<div class="input-group">
-									<label for="txtaddr">Địa chỉ</label> <input type="text"
-										name="txtaddr" id="txtaddr" class="form-control ">
-								</div>
-								<div class="input-group">
-									<label for="txtpassword">Mật khẩu</label> <input
-										type="password" name="txtpassword" id="txtpassword"
-										class="form-control ">
-									<button type="button" id="btnHide" class="toggle"
-										onclick="myfunction()">
-										<i id="eyeShow" class="fa-solid fa-eye"></i>
-									</button>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value=""
-										name="check" id="flexCheckIndeterminate"> <label
-										class="form-check-label" for="flexCheckIndeterminate">
-										Đồng ý với điều khoản! </label>
-								</div>
-								<div class="text-center mt-3">
-									<button class="btn btn-primary">Đăng Ký</button>
-								</div>
-								<div class="pt-3 text-center text-primary">
-									<a href="login.jsp" class="nav-link">Bạn đã có tài khoản?</a> <a
-										href="#" class="nav-link pt-1">Quên mật khẩu</a> <a
-										href="index.jsp" class="nav-link d-flex justify-content-end">Hủy</a>
-								</div>
-							</form>
-						</div>
+						<form action="register" method="post">
+							<div class="input-group">
+								<label for="txtname">Họ tên</label> <input type="text"
+									name="txtname" id="txtname" class="form-control ">
+							</div>
+							<div class="input-group">
+								<label for="txtemail">Email</label> <input type="text"
+									name="txtemail" id="txtemail" class="form-control ">
+							</div>
+							<div class="input-group">
+								<label for="txtphone">Số điện thoại</label> <input type="text"
+									maxlength="10" name="txtphone" id="txtphone"
+									class="form-control ">
+							</div>
+							<div class="input-group">
+								<label for="txtaddr">Địa chỉ</label> <input type="text"
+									name="txtaddr" id="txtaddr" class="form-control ">
+							</div>
+							<div class="input-group">
+								<label for="txtpassword">Mật khẩu</label> <input type="password"
+									name="txtpassword" id="txtpassword" class="form-control" placeholder="Mật khẩu ít nhất là 8 kí tự">
+								<button type="button" id="btnHide" class="toggle"
+									onclick="myfunction()">
+									<i id="eyeShow" class="fa-solid fa-eye"></i>
+								</button>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value=""
+									name="check" id="flexCheckIndeterminate"> <label
+									class="form-check-label" for="flexCheckIndeterminate">
+									Đồng ý với điều khoản! </label>
+							</div>
+							<div class="text-center mt-3">
+								<button class="btn btn-primary" id="btndangky">Đăng Ký</button>
+							</div>
+							<div class="pt-3 text-center text-primary">
+								<a href="login.jsp" class="nav-link">Bạn đã có tài khoản?</a> <a
+									href="#" class="nav-link pt-1">Quên mật khẩu</a> <a
+									href="index.jsp" class="nav-link d-flex justify-content-end">Hủy</a>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
+	
 	<script type="text/javascript">
 		var x = true;
 		function myfunction() {
@@ -110,8 +107,21 @@ input[type="text"], input[type="password"] {
 				document.getElementById('txtpassword').type = "password";
 				x = true;
 			}
-
 		}
+		document.addEventListener("DOMContentLoaded", function() {
+            var password = document.getElementById("txtpassword");
+            var btn = document.getElementById("btndangky");
+
+            btn.disabled = true;
+ 
+            password.addEventListener("input", function() {
+                if (password.value.length >= 8) {
+                    btndangky.disabled = false;
+                } else {
+                	btndangky.disabled = true;
+                }
+            });
+        });
 	</script>
 </body>
 </html>

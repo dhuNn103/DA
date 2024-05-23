@@ -1,0 +1,7 @@
+package com.CPT.Dao;
+
+import com.CPT.Entities.SanPham;
+
+public class SanPhamDaoImpl {
+	
+}

@@ -1,6 +1,5 @@
 package com.CPT.Entities;
 
-
 public class NguoiDung {
 	private int id;
 	private String hoten;
@@ -9,21 +8,21 @@ public class NguoiDung {
 	private String diachi;
 	private String matkhau;
 	private int vaitroid;
-//	private VaiTro vaiTro;
-	
-	
+
 	public NguoiDung() {
 		super();
-		
 	}
 
-//	public void setVaiTro(VaiTro vaiTro) {
-//        this.vaiTro = vaiTro;
-//    }
-//
-//    public VaiTro getVaiTro() {
-//        return vaiTro;
-//    }	
+	public NguoiDung(String hoten, String email, String sodienthoai, String diachi, String matkhau, int vaitroid) {
+		super();
+		this.hoten = hoten;
+		this.email = email;
+		this.sodienthoai = sodienthoai;
+		this.diachi = diachi;
+		this.matkhau = matkhau;
+		this.vaitroid = vaitroid;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -80,11 +79,4 @@ public class NguoiDung {
 		this.vaitroid = vaitroid;
 	}
 
-	@Override
-	public String toString() {
-		return "NguoiDung [id=" + id + ", hoten=" + hoten + ", email=" + email + ", sodienthoai=" + sodienthoai
-				+ ", diachi=" + diachi + ", matkhau=" + matkhau + ", vaitroid=" + vaitroid + "]";
-	}
-	
-	
 }

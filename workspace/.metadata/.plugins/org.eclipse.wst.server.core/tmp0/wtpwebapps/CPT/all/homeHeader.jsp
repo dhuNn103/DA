@@ -22,6 +22,9 @@
 .sea:hover {
 	background-color: #f7723e;
 }
+.active{
+	background-color: #f7723e;
+}
 </style>
 </head>
 <body>
@@ -81,16 +84,18 @@
 								if (loggedInUser == null) {
 								%>
 								<a href="login.jsp">
-									<button class="btn btn-primary">Đăng
-										nhập/đăng ký</button>
+									<button class="btn btn-primary">Đăng nhập/đăng ký</button>
 								</a>
 								<%
 								} else {
 								%>
-								<p><form action="LogoutServlet" method="post">
-										<button type="submit" class="bg-primary text-white ms-4">Đăng xuất</button>
-									</form>
-									Hi, <%=session.getAttribute("emls")%>	
+								<p>
+								<form action="LogoutServlet" method="post">
+									<button type="submit" class="btn btn-primary text-white ms-4">Đăng
+										xuất</button>
+								</form>
+								Hi,
+								<%=session.getAttribute("emls")%>
 								</p>
 								<%
 								}
@@ -100,7 +105,7 @@
 						<div class="col-md-2">
 							<div class="row">
 								<div class="fs-3 p-1">
-									<a href="#"> <i class="fa-solid fa-cart-shopping text-dark"></i>
+									<a href="giohang"> <i class="fa-solid fa-cart-shopping text-dark"></i>
 									</a>
 								</div>
 							</div>
@@ -152,7 +157,7 @@
 										<li><a class="dropdown-item " href="lapHP.jsp">Laptop
 												HP</a></li>
 										<li><a class="dropdown-item " href="macBook.jsp">MacBook
-												</a></li>
+										</a></li>
 										<li><a class="dropdown-item " href="sanphamkhac.jsp">Các
 												thiết bị sản phẩm khác</a></li>
 									</ul></li>
@@ -162,8 +167,8 @@
 					<div class="col-md-6 ">
 						<nav class="navbar navbar-expand-sm">
 							<ul class="navbar-nav mx-2 ">
-								<li class="nav-item mx-2"><a class="nav-link tl"
-									href="index.jsp">Trang chủ</i></a></li>
+								<li class="nav-item mx-2 "><a class="nav-link tl"
+									href="index.jsp">Trang chủ</a></li>
 								<li class="nav-item mx-2"><a class="nav-link tl"
 									href="trangGioiThieu.jsp">Giới thiệu</a></li>
 								<li class="nav-item mx-2"><a class="nav-link tl"
@@ -178,8 +183,8 @@
 					<div class="col-md-3 pt-1">
 						<nav class="navbar navbar-expand-sm justify-content-end">
 							<ul class="navbar-nav">
-								<form class="d-flex">
-									<input class="form-control me-2" type="search"
+								<form action="" method="" class="d-flex">
+									<input value="" type="text" name="txt" class="form-control me-2" 
 										placeholder="Search..." aria-label="Search">
 									<button class="btn btn-light sea" type="submit">
 										<i class="fa-solid fa-magnifying-glass "></i>

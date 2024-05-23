@@ -8,9 +8,5 @@
 </head>
 <body>
 
-	HttpSession session = req.getSession();
-	session.removeAttribute("emls");
-	session.removeAttribute("loggedInUser");
-	resp.sendRedirect("login.jsp");
 </body>
 </html>

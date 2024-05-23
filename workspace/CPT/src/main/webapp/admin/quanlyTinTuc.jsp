@@ -12,8 +12,15 @@
 	<%@include file="/admin/template/sidebar.jsp"%>
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 		<h4 class="pt-3">Danh sách tin tức</h4>
-		<div class="mx-5">
+		<div class="mx-5 d-flex">
 			<a href="add_sp.jsp" class="btn btn-primary">Thêm mới sản phẩm</a>
+			<form class="d-flex mx-5">
+				<input class="form-control me-2 mx-5" type="search"
+					placeholder="Search..." aria-label="Search">
+				<button class="btn btn-light sea" type="submit">
+					<i class="fa-solid fa-magnifying-glass "></i>
+				</button>
+			</form>
 		</div>
 		<table class="table table-bordered mt-3">
 			<thead>

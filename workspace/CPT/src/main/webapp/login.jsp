@@ -12,7 +12,6 @@
 .input-group {
 	position: relative;
 	width: 100%;
-	
 }
 
 input[type="text"], input[type="password"] {
@@ -48,30 +47,31 @@ input[type="text"], input[type="password"] {
 								<h5 class="text-center text-danger">${fMsg}</h5>
 								<c:remove var="fMsg" scope="session" />
 							</c:if>
-							
+
 
 							<form action="login" method="post" class="pt-5">
 								<div class="input-group">
-									<label for="txtname">Tên đăng nhập</label> <input type="text" 
+									<label for="txtname">Tên đăng nhập</label> <input type="text"
 										name="txtemail" id="txtemail" class="form-control">
 								</div>
 								<div class="input-group">
-									<label for="txtpassword">Mật khẩu</label> <input 
-										type="password" name="txtpassword" id="txtpassword" 
+									<label for="txtpassword">Mật khẩu</label> <input
+										type="password" name="txtpassword" id="txtpassword"
 										class="form-control ">
-									<button type="button" id="btnHide" class="toggle" onclick="myfunction()">
-										<i id="eyeShow" class="fa-solid fa-eye" ></i>
+									<button type="button" id="btnHide" class="toggle"
+										onclick="myfunction()">
+										<i id="eyeShow" class="fa-solid fa-eye"></i>
 									</button>
 
 								</div>
 								<div class="text-center mt-3">
-									<button class="btn btn-primary">Đăng nhập</button>
+									<button class="btn btn-primary" id="btn">Đăng nhập</button>
 								</div>
 								<div class="pt-3 text-center text-primary">
 									<a href="register.jsp" class="nav-link">Bạn chưa có tài
-										khoản?</a> 
-										<a href="quenPass.jsp" class="nav-link">Quên mật khẩu</a> <a
-										href="index.jsp" class="nav-link d-flex justify-content-end">Hủy</a>
+										khoản?</a> <a href="quenPass.jsp" class="nav-link">Quên mật
+										khẩu</a> <a href="index.jsp"
+										class="nav-link d-flex justify-content-end">Hủy</a>
 								</div>
 							</form>
 						</div>
@@ -80,19 +80,45 @@ input[type="text"], input[type="password"] {
 			</div>
 		</div>
 	</section>
+	<script
+		src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 	<script type="text/javascript">
 		var x = true;
 		function myfunction() {
-			if(x){
+			if (x) {
 				document.getElementById('txtpassword').type = "text";
 				x = false;
-			}else{
+			} else {
 				document.getElementById('txtpassword').type = "password";
 				x = true;
 			}
-			
 		}
+
+		var status = '<c:out value="${sessionScope.status}" />';
+		var faileMsg = '<c:out value="${sessionScope.faileMsg}" />';
+		if (status == "success") {
+			Swal.fire("Thành công", faileMsg, "success");
+			<%session.removeAttribute("status");%>	
+			<%session.removeAttribute("faileMsg");%>
+		}
+		document.addEventListener("DOMContentLoaded", function() {
+            var password = document.getElementById("txtpassword");
+            var btnlogin = document.getElementById("btn");
+
+            btnlogin.disabled = true;
+
+            
+            password.addEventListener("input", function() {
+                if (password.value.length >= 8) {
+                    btn.disabled = false;
+                } else {
+                    btn.disabled = true;
+                }
+            });
+        });
 	</script>
+
+
 </body>
 
 </html>

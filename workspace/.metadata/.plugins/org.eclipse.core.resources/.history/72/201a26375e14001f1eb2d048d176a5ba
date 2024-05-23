@@ -1,0 +1,58 @@
+package com.CPT.Admin.Servlet;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import com.CPT.DB.DBConnect;
+
+public class AddSanPham extends HttpServlet{
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		 String idDanhMuc = req.getParameter("id_danhmuc");
+	        String tenSanPham = req.getParameter("tensanpham");
+	        Part filePart = req.getPart("hinhanh");
+
+	        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+	        String uploadDir = getServletContext().getRealPath("") + File.separator + "uploads";
+	        File uploadDirFile = new File(uploadDir);
+	        if (!uploadDirFile.exists()) {
+	            uploadDirFile.mkdir();
+	        }
+	        
+	        File file = new File(uploadDir, fileName);
+	        try (var inputStream = filePart.getInputStream()) {
+	            Files.copy(inputStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+	        }
+
+	        try {
+	            
+	            try (Connection conn = DBConnect.getConnect()) {
+	                String sql = "INSERT INTO sanpham (id_danhmuc, tensanpham, hinhanh) VALUES (?, ?, ?)";
+	                try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+	                    stmt.setString(1, idDanhMuc);
+	                    stmt.setString(2, tenSanPham);
+	                    stmt.setString(3, fileName);
+	                    stmt.executeUpdate();
+	                }
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+
+	        resp.sendRedirect("jsp/addProduct.jsp");
+	}
+
+}

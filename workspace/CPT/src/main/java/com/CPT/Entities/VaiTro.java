@@ -26,10 +26,4 @@ public class VaiTro {
 		this.tenvaitro = tenvaitro;
 	}
 
-	@Override
-	public String toString() {
-		return "VaiTro [id=" + id + ", tenvaitro=" + tenvaitro + "]";
-	}
-	
-	
 }
