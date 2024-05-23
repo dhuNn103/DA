@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.CPT.Entities.NguoiDung;
 
-
 public class NguoiDungDaoImpl implements NguoiDungDao {
 
 	private Connection conn;
@@ -67,30 +66,6 @@ public class NguoiDungDaoImpl implements NguoiDungDao {
 	}
 
 	@Override
-	public boolean addNguoiDung(NguoiDung nds) {
-		boolean f = false;
-		try {
-			String sql = "insert into nguoi_dung(ho_ten, email, so_dien_thoai, dia_chi, mat_khau, id_vai_tro) values(?,?,?,?,?,3)";
-			PreparedStatement pst = conn.prepareStatement(sql);
-			
-			pst.setString(1, nds.getHoten());
-			pst.setString(2, nds.getEmail());
-			pst.setString(3, nds.getSodienthoai());
-			pst.setString(4, nds.getDiachi());
-			pst.setString(5, nds.getMatkhau());
-
-
-			int i = pst.executeUpdate();
-			if (i == 1) {
-				f = true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return f;
-	}
-
-	@Override
 	public NguoiDung getNguoiDungById(int id) {
 		NguoiDung nguoiDung = null;
 		String sql = "SELECT * FROM nguoi_dung WHERE id_nguoi_dung = ?";
@@ -116,41 +91,38 @@ public class NguoiDungDaoImpl implements NguoiDungDao {
 	}
 
 	@Override
-	public boolean updateNguoiDung(NguoiDung nds) {
-		boolean success = false;
-		String sql = "UPDATE nguoi_dung SET ho_ten = ?, email = ?, so_dien_thoai = ?, dia_chi = ?, mat_khau = ?, id_vai_tro = ? WHERE id_nguoi_dung = ?";
+	public boolean addNguoiDung(NguoiDung and) {
+		boolean f = false;
+		try {
+			String sql = "insert into nguoi_dung(ho_ten, email, so_dien_thoai, dia_chi, mat_khau, id_vai_tro) values(?,?,?,?,?,?)";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, and.getHoten());
+			ps.setString(2, and.getEmail());
+			ps.setString(3, and.getSodienthoai());
+			ps.setString(4, and.getDiachi());
+			ps.setString(5, and.getMatkhau());
+			ps.setInt(6, and.getVaitroid());
 
-		try (PreparedStatement ps = conn.prepareStatement(sql)) {
-			ps.setString(1, nds.getHoten());
-			ps.setString(2, nds.getEmail());
-			ps.setString(3, nds.getSodienthoai());
-			ps.setString(4, nds.getDiachi());
-			ps.setString(5, nds.getMatkhau());
-			ps.setInt(6, nds.getVaitroid());
-			ps.setInt(7, nds.getId());
-
-			int rowsAffected = ps.executeUpdate();
-			success = rowsAffected == 1;
-		} catch (SQLException e) {
+			int i = ps.executeUpdate();
+			if (i == 1) {
+				f = true;
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return success;
+		return f;
+	}
+
+	@Override
+	public boolean editNguoiDung(NguoiDung end) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean deleteNguoiDung(int id) {
-		boolean success = false;
-		String sql = "DELETE FROM nguoi_dung WHERE id_nguoi_dung = ?";
-
-		try (PreparedStatement ps = conn.prepareStatement(sql)) {
-			ps.setInt(1, id);
-
-			int rowsAffected = ps.executeUpdate();
-			success = rowsAffected == 1;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return success;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

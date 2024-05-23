@@ -20,7 +20,7 @@
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 		<h4 class="pt-3">Danh sách tài khoản</h4>
 		<div class="mx-5 d-flex">
-			<a href="UserAdd.jsp" class="btn btn-primary">Thêm mới tài khoản</a>
+			<a href="TaiKhoanAdd.jsp" class="btn btn-primary">Thêm mới tài khoản</a>
 		</div>
 		<c:if test="${ not empty succMsg }">
 				<h5 class="text-success text-center">${succMsg }</h5>

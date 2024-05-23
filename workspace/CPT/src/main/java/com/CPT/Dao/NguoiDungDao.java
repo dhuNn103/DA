@@ -10,11 +10,11 @@ public interface NguoiDungDao {
 
 	public List<NguoiDung> getNguoiDungAll();
 
-	public boolean addNguoiDung(NguoiDung nds);
+	public boolean addNguoiDung(NguoiDung and);
 
 	public NguoiDung getNguoiDungById(int id);
 
-	public boolean updateNguoiDung(NguoiDung nds);
+	public boolean editNguoiDung(NguoiDung end);
 
 	public boolean deleteNguoiDung(int id);
 
