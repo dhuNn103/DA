@@ -115,14 +115,44 @@ public class NguoiDungDaoImpl implements NguoiDungDao {
 
 	@Override
 	public boolean editNguoiDung(NguoiDung end) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean f = false;
+		try {
+			String sql = "update nguoi_dung set  ho_ten=?, email=?, so_dien_thoai=?, dia_chi=?, mat_khau=?, id_vai_tro=? where id_nguoi_dung = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setString(1, end.getHoten());
+			ps.setString(2, end.getEmail());
+			ps.setString(3, end.getSodienthoai());
+			ps.setString(4, end.getDiachi());
+			ps.setString(5, end.getMatkhau());
+			ps.setInt(6, end.getVaitroid());
+			ps.setInt(7, end.getId());
+			
+			int i = ps.executeUpdate();
+			if(i == 1) {
+				f = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return f;
 	}
 
 	@Override
 	public boolean deleteNguoiDung(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean f = false;
+		try {
+			String sql = "delete from nguoi_dung where id_nguoi_dung = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			int i = ps.executeUpdate();
+			if (i == 1) {
+				f = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return f;
 	}
 
 }

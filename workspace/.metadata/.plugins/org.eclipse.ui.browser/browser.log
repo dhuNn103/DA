@@ -136,3 +136,7 @@ May 23, 2024 17:54:14.20 Created TensorFlow Lite XNNPACK delegate for CPU.
 May 23, 2024 17:56:31.39 Created TensorFlow Lite XNNPACK delegate for CPU.
 May 23, 2024 19:08:36.96 [6448:15048:0523/190836.962:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
 May 23, 2024 19:49:18.14 [6448:15048:0523/194918.141:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -1
+
+May 24, 2024 15:46:52.50 NEW SESSION
+May 24, 2024 15:46:52.53 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 24, 2024 16:33:13.95 [6912:12520:0524/163313.955:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <%@include file="/all/css.jsp"%>
-<title>Login - form</title>
+<title>Đăng nhập</title>
 <style type="text/css">
 .input-group {
 	position: relative;

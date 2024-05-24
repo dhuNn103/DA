@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.CPT.Entities.NguoiDung;
 import com.CPT.Entities.SanPham;
 
 public class SanPhamDaoImpl implements SanPhamDao {

@@ -22,7 +22,8 @@
 .sea:hover {
 	background-color: #f7723e;
 }
-.active{
+
+.active {
 	background-color: #f7723e;
 }
 </style>
@@ -95,8 +96,7 @@
 										xuất</button>
 								</form>
 								Hi,
-								<%=session.getAttribute("emls")%>
-								</p>
+								<%=session.getAttribute("emls")%>								
 								<%
 								}
 								%>
@@ -105,7 +105,8 @@
 						<div class="col-md-2">
 							<div class="row">
 								<div class="fs-3 p-1">
-									<a href="giohang"> <i class="fa-solid fa-cart-shopping text-dark"></i>
+									<a href="giohang"> <i
+										class="fa-solid fa-cart-shopping text-dark"></i>
 									</a>
 								</div>
 							</div>
@@ -181,16 +182,16 @@
 						</nav>
 					</div>
 					<div class="col-md-3 pt-1">
-						<nav class="navbar navbar-expand-sm justify-content-end">
-							<ul class="navbar-nav">
-								<form action="" method="" class="d-flex">
-									<input value="" type="text" name="txt" class="form-control me-2" 
-										placeholder="Search..." aria-label="Search">
-									<button class="btn btn-light sea" type="submit">
-										<i class="fa-solid fa-magnifying-glass "></i>
-									</button>
-								</form>
-							</ul>
+						<nav class="navbar navbar-expand-sm justify-content-end"
+							role="navigation">
+							<form action="search_results.html" method="get" class="d-flex">
+								<input value="" type="text" name="txt" class="form-control me-2"
+									placeholder="Search..." aria-label="Search">
+								<button class="btn btn-light sea" type="submit"
+									aria-label="Submit search">
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</button>
+							</form>
 						</nav>
 					</div>
 				</div>

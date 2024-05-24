@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <%@include file="/all/css.jsp"%>
-<title>Laptop Acer</title>
+<title>Laptop - Acer</title>
 </head>
 <body>
 <jsp:include page="all/homeHeader.jsp"></jsp:include>

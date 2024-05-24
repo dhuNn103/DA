@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Update sản phẩm</title>
 </head>
 <body>
 	<%@include file="/admin/template/header.jsp"%>
@@ -54,7 +54,6 @@
 								class="form-control" name="mota" id="exampleInputPassword1"
 								value="<%=sp.getMota()%>">
 						</div>
-
 					</div>
 					<div class="col-md-6">
 

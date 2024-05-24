@@ -31,7 +31,7 @@
 					<i class="fa-solid fa-magnifying-glass "></i>
 				</button>
 			</form>
-
+			
 			<c:if test="${ not empty succMsg }">
 				<h5 class="text-success text-center">${succMsg }</h5>>
 				<c:remove var="succMsg" scope="session" />

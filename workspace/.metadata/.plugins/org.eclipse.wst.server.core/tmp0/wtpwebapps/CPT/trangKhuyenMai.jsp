@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <%@include file="all/css.jsp"%>
-<title>Insert title here</title>
+<title>Khuyến mãi</title>
 </head>
 <body>
 <jsp:include page="all/homeHeader.jsp"></jsp:include>

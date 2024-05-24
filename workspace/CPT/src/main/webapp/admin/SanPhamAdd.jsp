@@ -25,6 +25,7 @@
 				<h5 class="text-success text-danger">${faileMsg }</h5>>
 				<c:remove var="faileMsg" scope="session" />
 			</c:if>
+			
 			<form action="../Addsanpham" method="post"
 				enctype="multipart/form-data">
 				<div class="row d-flex px-2">
@@ -49,10 +50,8 @@
 							<label class="form-label">Mô tả</label> <input type="text"
 								class="form-control" name="mota" id="exampleInputPassword1">
 						</div>
-
 					</div>
 					<div class="col-md-6">
-						
 						<div class="mb-3">
 							<label class="form-label">Ngày tạo</label> <input type="text"
 								class="form-control" name="ngaytao" id="exampleInputPassword1">

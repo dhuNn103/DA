@@ -20,17 +20,23 @@
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 		<h4 class="pt-3">Danh sách tài khoản</h4>
 		<div class="mx-5 d-flex">
-			<a href="TaiKhoanAdd.jsp" class="btn btn-primary">Thêm mới tài khoản</a>
+			<a href="TaiKhoanAdd.jsp" class="btn btn-primary">Thêm mới tài
+				khoản</a>
 		</div>
-		<c:if test="${ not empty succMsg }">
-				<h5 class="text-success text-center">${succMsg }</h5>
-				<c:remove var="succMsg" scope="session" />
-			</c:if>
+		<c:if test="${not empty status }">
+			<h5 class="text-center text-success">${status}</h5>
+			<c:remove var="status" scope="session" />
+		</c:if>
 
-			<c:if test="${ not empty faileMsg }">
-				<h5 class="text-success text-danger">${faileMsg }</h5>>
+		<c:if test="${ not empty succMsg }">
+			<h5 class="text-success text-center">${succMsg }</h5>
+			<c:remove var="succMsg" scope="session" />
+		</c:if>
+
+		<c:if test="${ not empty faileMsg }">
+			<h5 class="text-success text-danger">${faileMsg }</h5>>
 				<c:remove var="faileMsg" scope="session" />
-			</c:if>
+		</c:if>
 		<table class="table table-bordered mt-3">
 			<thead>
 				<tr>
@@ -38,7 +44,7 @@
 					<th scope="col">Email</th>
 					<th scope="col">SĐT</th>
 					<th scope="col" style="width: 30px">Địa chỉ</th>
-					<th scope="col" >Mật khẩu</th>
+					<th scope="col">Mật khẩu</th>
 					<th scope="col" style="width: 20px">Id vai trò</th>
 					<th>Actions</th>
 				</tr>
@@ -54,10 +60,11 @@
 					<td><%=nd.getEmail()%></td>
 					<td><%=nd.getSodienthoai()%></td>
 					<td><%=nd.getDiachi()%></td>
-					<td><%=nd.getMatkhau() %></td>
+					<td><%=nd.getMatkhau()%></td>
 					<td><%=nd.getVaitroid()%></td>
-					<td><a href="UserEdit.jsp?id=<%=nd.getId() %>" class="btn btn-primary">Edit</a> <a
-						href="../delete?id=<%=nd.getId() %>" class="btn btn-danger">Delete</a></td>
+					<td><a href="TaiKhoanEdit.jsp?id=<%=nd.getId()%>"
+						class="btn btn-primary">Edit</a> <a
+						href="../delete?id=<%=nd.getId()%>" class="btn btn-danger">Delete</a></td>
 				</tr>
 				<%
 				}

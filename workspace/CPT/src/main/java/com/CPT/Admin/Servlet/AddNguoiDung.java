@@ -52,36 +52,33 @@ public class AddNguoiDung extends HttpServlet {
 			n.setVaitroid(idvaitro);
 
 			if (hoten.isEmpty() || email.isEmpty() || sodienthoai.isEmpty() || diachi.isEmpty() || matkhau.isEmpty()) {
-				session.setAttribute("status", "failed");
-				session.setAttribute("faileMsg", "Vui lòng nhập đầy đủ thông tin!");
+				session.setAttribute("status", "Vui lòng nhập đầy đủ thông tin!");
 				resp.sendRedirect("admin/TaiKhoanAdd.jsp");
 			} else {
 				Connection conn = null;
 				try {
 					conn = DBConnect.getConnect();
-					PreparedStatement checkEmailStmt = conn
-							.prepareStatement("SELECT email FROM nguoi_dung WHERE email = ?");
+					PreparedStatement checkEmailStmt = conn.prepareStatement("SELECT email FROM nguoi_dung WHERE email = ?");
 					checkEmailStmt.setString(1, email);
 					ResultSet rs = checkEmailStmt.executeQuery();
 					if (rs.next()) {
-						session.setAttribute("status", "failed");
-						session.setAttribute("faileMsg", "Email đã tồn tại. Vui lòng sử dụng email khác!");
+						session.setAttribute("status", "Email đã tồn tại. Vui lòng sử dụng email khác!");
 						resp.sendRedirect("admin/TaiKhoanAdd.jsp");
 					} else {
 						NguoiDungDaoImpl dao = new NguoiDungDaoImpl(conn);
 						boolean f = dao.addNguoiDung(n);
 						if (f) {
-							session.setAttribute("status", "success");
+							session.setAttribute("status", "Thêm tài khoản thành công");
 							resp.sendRedirect("admin/quanlyTaiKhoan.jsp");
 						} else {
-							session.setAttribute("status", "failed");
+							session.setAttribute("status", "Thất bại, vui lòng thử lại!");
 							resp.sendRedirect("admin/TaiKhoanAdd.jsp");
 						}
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
 					session.setAttribute("status", "error");
-					resp.sendRedirect("register.jsp");
+					resp.sendRedirect("admin/TaiKhoanAdd.jsp");
 				} finally {
 					if (conn != null) {
 						try {
@@ -94,9 +91,8 @@ public class AddNguoiDung extends HttpServlet {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			session.setAttribute("status", "error");
-			session.setAttribute("faileMsg", "Có lỗi xảy ra. Vui lòng thử lại!");
-			resp.sendRedirect("register.jsp");
+			session.setAttribute("status", "Có lỗi xảy ra. Vui lòng thử lại!");
+			resp.sendRedirect("admin/TaiKhoanAdd.jsp");
 		}
 	}
 

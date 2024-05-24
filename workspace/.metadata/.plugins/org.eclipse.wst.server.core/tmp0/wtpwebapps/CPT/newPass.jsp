@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <%@include file="/all/css.jsp"%>
-<title>Insert title here</title>
+<title>Mật khẩu mới</title>
 <style type="text/css">
 .input-group {
 	position: relative;
@@ -50,25 +50,21 @@ input[type="text"], input[type="password"] {
 							</c:if>
 							<form action="new_password" method="post">
 								<div class="input-group">
-									<label for="txtpassword">Nhập mật khẩu mới</label> <input 
-										type="password" name="txtpasss" id="txtpasss" 
-										class="form-control ">
+									<label for="txtpassword">Nhập mật khẩu mới</label> 
+									<input type="password" name="txtpasss" id="txtpasss" class="form-control ">
 									<button type="button" id="btnHide" class="toggle" onclick="myfunction()">
 										<i id="eyeShow" class="fa-solid fa-eye" ></i>
 									</button>
 								</div>
 								<div class="input-group">
-									<label for="txtpassword">Nhập lại mật khẩu mới</label> <input 
-										type="password" name="comfirm_pass" id="comfirm_pass" 
-										class="form-control ">
+									<label for="txtpassword">Nhập lại mật khẩu mới</label>
+									<input type="password" name="comfirm_pass" id="comfirm_pass" class="form-control ">
 									<button type="button" id="btnHides" class="toggle" onclick="myfunctions()">
 										<i id="eyeShow" class="fa-solid fa-eye" ></i>
 									</button>
 								</div>
 								<div class="text-center mt-3 d-flex justify-content-end">
-									<button class="btn btn-secondary">
-										<a href="login.jsp" class="nav-link">Hủy</a>
-									</button>
+									<a href="login.jsp" class="btn btn-secondary">Hủy</a>		
 									<button class="btn btn-primary mx-3">Đặt mật khẩu</button>
 								</div>
 							</form>
