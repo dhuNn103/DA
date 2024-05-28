@@ -1,5 +1,10 @@
+<%@page import="com.CPT.Entities.SanPham"%>
+<%@page import="java.util.List"%>
+<%@page import="com.CPT.DB.DBConnect"%>
+<%@page import="com.CPT.Dao.SanPhamDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,194 +29,104 @@
 	<div class="container-fluid back-image"></div>
 	<section>
 		<div class="container px-5 pt-3">
-			<h3>SẢN PHẨM NỔI BẬT</h3>
+			<h3>SẢN PHẨM MỚI</h3>
 			<div class="row my-3">
-				<div class="col-md-3">
-					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/laptop1.jpg"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Dell inspiron 5420</p>
-							<p class="text-danger">14.390.000đ</p>
-							<div class="d-flex mx-4">
-								<a href="#" class="btn btn-success p-2 m-2">Chi tiết</a>
-								<a href="#" class="btn btn-danger p-2 m-2">Giỏ hàng</a>
-							</div>
-						</div>
-					</div>
-				</div>
 
+				<%
+				SanPhamDaoImpl dao = new SanPhamDaoImpl(DBConnect.getConnect());
+				List<SanPham> list = dao.getNewSanPham();
+				for (SanPham p : list) {
+				%>
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/as1.jpg"
+							<img alt="" src="img/<%=p.getHinhanh()%>"
 								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Asus zenbook 15</p>
-							<p class="text-danger">24.390.000đ</p>
-							<div class="d-flex mx-4">
-								<a href="#" class="btn btn-success p-2 m-2">Chi tiết</a>
-								<a href="#" class="btn btn-danger p-2 m-2">Giỏ hàng</a>
+							<p><%=p.getTensanpham()%></p>
+							<h5 class="text-danger">
+								Giá mới:
+								<%=p.getGiamoi()%>.đ
+							</h5>
+							<p class="" style="text-decoration: line-through;">
+								Giá cũ:
+								<%=p.getGiacu()%>.đ
+							</p>
+							<div class="button-container d-flex justify-content-center mx-4">
+								<%
+								if (p.getTinhtrang().equals("còn hàng")) {
+								%>
+								<a href="ChitietSanPham.jsp?id=<%=p.getId()%>" class="btn btn-success p-2 m-2">Chi tiết</a> <a
+									href="#" class="btn btn-danger p-2 m-2"><i
+									class="fa-brands fa-opencart"></i> Giỏ hàng</a>
+								<%
+								} else {
+								%>
+								<a href="ChitietSanPham.jsp?id=<%=p.getId()%>" class="btn btn-success p-2 m-2">Chi tiết</a>
+								<%
+								}
+								%>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-md-3">
-					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/content/ac1.jpg"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Acer GHSHT-1524 Hybird</p>
-							<p class="text-danger">24.390.000đ</p>
-							<div class="d-flex mx-4">
-								<a href="#" class="btn btn-success p-2 m-2">Chi tiết</a>
-								<a href="#" class="btn btn-danger p-2 m-2">Giỏ hàng</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/content/hp1.jpg"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Hp victor GHSHT-1524 Hybird</p>
-							<p class="text-danger">40.390.000đ</p>
-							<div class="d-flex mx-4">
-								<a href="#" class="btn btn-success p-2 m-2">Chi tiết</a>
-								<a href="#" class="btn btn-danger p-2 m-2">Giỏ hàng</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				<%
+				}
+				%>
 			</div>
 			<div class="text-center mb-3">
-				<a href="" class="btn btn-primary ">Xem thêm</a>
+				<a href="All_new_SP.jsp" class="btn btn-primary ">Xem thêm</a>
 			</div>
 		</div>
 
 		<div class="container px-5">
 			<h3>SẢN PHẨM LIÊN QUAN</h3>
-			<div class="row py-3">
-				<div class="col-md-3">
+			<div class="row">
+				<%
+				SanPhamDaoImpl dao1 = new SanPhamDaoImpl(DBConnect.getConnect());
+				List<SanPham> listAll = dao1.getAllSanPham();
+				for (SanPham p : listAll) {
+				%>
+				<div class="col-md-3  py-2">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/content/hp1.jpg"
+							<img alt="" src="img/<%=p.getHinhanh()%>"
 								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Hp victor GHSHT-1524 Hybird</p>
-							<p class="text-danger">40.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
+							<p><%=p.getTensanpham()%></p>
+							<h5 class="text-danger">
+								Giá mới:
+								<%=p.getGiamoi()%>
+								đ
+							</h5>
+							<p class="" style="text-decoration: line-through;">
+								Giá cũ:
+								<%=p.getGiacu()%>
+								đ
+							</p>
+							<div class="button-container d-flex justify-content-center mx-4">
+								<%
+								String tinhTrang = p.getTinhtrang();
+								if ("còn hàng".equals(tinhTrang)) {
+								%>
+								<a href="ChitietSanPham.jsp" class="btn btn-success p-2 m-2">Chi tiết</a> <a
+									href="#" class="btn btn-danger p-2 m-2"><i
+									class="fa-brands fa-opencart"></i> Giỏ hàng</a>
+								<%
+								} else {
+								%>
+								<a href="ChitietSanPham.jsp" class="btn btn-success p-2 m-2">Chi tiết</a>
+								<%
+								}
+								%>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-md-3">
-					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/content/mac1.jpg"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Macbook M3 pro</p>
-							<p class="text-danger">60.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/content/le1.jpg"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Lenovo Thinkbook G3 pro</p>
-							<p class="text-danger">30.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/content/as1.jpg"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Asus zenbook 15</p>
-							<p class="text-danger">24.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row py-3">
-				<div class="col-md-3">
-					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/content/hp1.jpg"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Hp victor GHSHT-1524 Hybird</p>
-							<p class="text-danger">40.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/content/mac1.jpg"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Macbook M3 pro</p>
-							<p class="text-danger">60.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3">
-					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/content/le1.jpg"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Lenovo Thinkbook G3 pro</p>
-							<p class="text-danger">30.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				
-					
-				<div class="col-md-3">
-					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/content/as1.jpg"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p>Asus zenbook 15</p>
-							<p class="text-danger">24.390.000đ</p>
-							<div class="row col-5 mx-auto">
-								<a href="" class="btn btn-danger">Giỏ hàng</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				<%
+				}
+				%>
 			</div>
 			<div class="text-center mb-3">
-				<a href="" class="btn btn-primary ">Xem thêm</a>
+				<a href="All_SP.jsp" class="btn btn-primary ">Xem thêm</a>
 			</div>
 		</div>
 	</section>

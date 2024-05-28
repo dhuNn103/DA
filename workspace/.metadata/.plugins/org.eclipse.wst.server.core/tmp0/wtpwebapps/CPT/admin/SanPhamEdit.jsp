@@ -54,23 +54,34 @@
 								class="form-control" name="mota" id="exampleInputPassword1"
 								value="<%=sp.getMota()%>">
 						</div>
-					</div>
-					<div class="col-md-6">
-
 						<div class="mb-3">
 							<label class="form-label">Ngày tạo</label> <input type="text"
 								class="form-control" name="ngaytao" id="exampleInputPassword1"
 								value="<%=sp.getNgaytao()%>">
 						</div>
+					</div>
+					<div class="col-md-6">
+
+						
 						<div class="mb-3">
 							<label class="form-label">Ngày sửa</label> <input type="text"
 								class="form-control" name="ngaysua" id="exampleInputPassword1"
 								value="<%=sp.getNgaysua()%>">
 						</div>
 						<div class="mb-3">
-							<label class="form-label">Hình ảnh</label> <input type="file"
+							<label class="form-label">Hình ảnh</label> 
+							<br>
+							<img alt="" src="../img/<%=sp.getHinhanh()%>" style='height: 110px; width: 110px;'> <input type="file"
 								class="form-control" name="anh" id="exampleInputPassword1"
-								value="<%=sp.getHinhanh()%>">
+								value="">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Loại</label> <input type="text"
+								class="form-control" name="loai" id="exampleInputPassword1" value="<%=sp.getLoaisanpham()%>">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Tình trạng</label> <input type="text"
+								class="form-control" name="tinhtrang" id="exampleInputPassword1" value="<%=sp.getTinhtrang()%>">
 						</div>
 						<div class="d-flex justify-content-end">
 							<a href="quanlySanPham.jsp" class="btn btn-secondary p-2 m-2 ">Quay

@@ -74,7 +74,7 @@
 							</div>
 							<div class="col-md-2 mx-5">
 								<p>
-									<a href="lapHP" class="text-reset">Hp</a>
+									<a href="lapHP.jsp" class="text-reset">Hp</a>
 								</p>
 							</div>
 						</div>

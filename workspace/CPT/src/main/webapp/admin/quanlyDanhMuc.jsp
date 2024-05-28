@@ -1,5 +1,11 @@
+<%@page import="com.CPT.Entities.DanhMuc"%>
+<%@page import="java.util.List"%>
+<%@page import="com.CPT.DB.DBConnect"%>
+<%@page import="com.CPT.Dao.DanhMucDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,52 +17,34 @@
 	<%@include file="/admin/template/header.jsp"%>
 	<%@include file="/admin/template/sidebar.jsp"%>
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-		<h4 class="pt-3">Danh mụcc</h4>
+		<h4 class="pt-3">Danh mục</h4>
 		<div class="mx-5">
-			<a href="add_sp.jsp" class="btn btn-primary">Thêm mới sản phẩm</a>
+			<a href="DanhMucAdd.jsp" class="btn btn-primary">Thêm mới danh
+				mục</a>
 		</div>
 		<table class="table table-bordered mt-3">
 			<thead>
 				<tr>
-					<th scope="col">Tên sản phẩm</th>
-					<th scope="col">Giá bán</th>
-					<th scope="col">Hệ điều hành</th>
-					<th scope="col">Tình trạng</th>
-					<th scope="col">Hình ảnh</th>
-					<th></th>
+					<th scope="col">ID</th>
+					<th scope="col">Tên danh mục</th>
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
+				<%
+				DanhMucDaoImpl dao = new DanhMucDaoImpl(DBConnect.getConnect());
+				List<DanhMuc> dmlist = dao.getDanhMucAll();
+				for (DanhMuc dm : dmlist) {
+				%>
 				<tr>
-					<th>a</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-					<td>@mdo</td>
-					<td><a href="#" class="btn btn-danger">Delete</a> <a
-						href="edit_sp.jsp" class="btn btn-primary">Edit</a> <a
-						href="chi_tiet_sp.jsp" class="btn btn-success">detail</a></td>
+					<td><%=dm.getId() %></td>
+					<td><%=dm.getTendanhmuc()%></td>
+					<td><a href="DanhMucEdit.jsp" class="btn btn-primary">Edit</a> <a href="#"
+						class="btn btn-danger">Delete</a></td>
 				</tr>
-				<tr>
-					<th>b</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-					<td>@mdo</td>
-					<td><a href="#" class="btn btn-danger">Delete</a> <a
-						href="edit_sp.jsp" class="btn btn-primary">Edit</a> <a
-						href="chi_tiet_sp.jsp" class="btn btn-success">detail</a></td>
-				</tr>
-				<tr>
-					<th>c</th>
-					<td>Larry the Bird</td>
-					<td>@twitter</td>
-					<td>@twitter</td>
-					<td>@mdo</td>
-					<td><a href="#" class="btn btn-danger">Delete</a> <a
-						href="edit_sp.jsp" class="btn btn-primary">Edit</a> <a
-						href="chi_tiet_sp.jsp" class="btn btn-success">detail</a></td>
-				</tr>
+				<%
+				}
+				%>
 			</tbody>
 		</table>
 

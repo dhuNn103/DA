@@ -10,6 +10,7 @@
 .nav-pills .nav-link:hover {
 	background-color: #f7723e;
 }
+
 .nav-pills .nav-link:active {
 	background-color: red;
 }
@@ -54,6 +55,10 @@
 			<li><a id="statsLink" href="quanlyThongKe.jsp"
 				class="nav-link text-white"> <i class="fa-solid fa-chart-simple"></i>
 					Quản lý thống kê
+			</a></li>
+			<li><a id="statsLink" href="quanlyGiaoDien.jsp"
+				class="nav-link text-white"> <i class="fa-solid fa-chart-simple"></i>
+					Quản lý giao diện
 			</a></li>
 		</ul>
 	</div>

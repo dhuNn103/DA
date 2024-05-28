@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<%@include file="all/css.jsp"%>
+<title>Chi tiết sản phẩm</title>
+</head>
+<body>
+	<jsp:include page="all/homeHeader.jsp"></jsp:include>
+	<div class="container px-5 pt-3 py-3">
+		<h3>Chi tiết sản phẩm</h3>
+		<div class="row " style="border: 1px gray solid; border-radius: 5px;">
+			<div class="col-md-6 py-2">
+				<img alt="" src="img/del3.jpg" style="height: 500px; width: 600px">
+			</div>
+			<div class="col-md-6 pt-4">
+				<div class="col">
+					<h4>Name: </h4>
+					<h3 class="text-danger">Giá mới:</h3>
+					<h4 style="text-decoration: line-through;">Giá cũ:</h4>
+					<p style="text-align: justify">Mô tả:</p>
+				</div>
+				<div class="mt-5 d-flex justify-content-end pt-5">
+					<a href="index.jsp" class="btn btn-secondary p-2 m-2">Quay lại</a>
+					<a href="#" class="btn btn-danger p-2 m-2"><i
+						class="fa-brands fa-opencart"></i> Giỏ hàng</a>
+				</div>
+			</div>		
+		</div>
+	</div>
+	<%@include file="all/homeFooter.jsp"%>
+</body>
+</html>

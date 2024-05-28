@@ -39,6 +39,8 @@ public class EditSanPham extends HttpServlet {
 			String ngaySua = req.getParameter("ngaysua");
 			Part imagePart = req.getPart("anh");
 			String fileName = imagePart.getSubmittedFileName();
+			String loai = req.getParameter("loai");
+			String tinhtrang = req.getParameter("tinhtrang");
 
 			// Đường dẫn để lưu tệp upload
 			String uploadPath = getServletContext().getRealPath("") + File.separator + "uploads";
@@ -59,6 +61,8 @@ public class EditSanPham extends HttpServlet {
 			sp.setNgaytao(ngayTao);
 			sp.setNgaysua(ngaySua);
 			sp.setHinhanh(fileName);
+			sp.setLoaisanpham(loai);
+			sp.setTinhtrang(tinhtrang);
 
 			// Tạo DAO và cập nhật sản phẩm
 			SanPhamDaoImpl dao = new SanPhamDaoImpl(DBConnect.getConnect());
@@ -67,7 +71,7 @@ public class EditSanPham extends HttpServlet {
 			// Lấy session và đặt thông báo
 			HttpSession session = req.getSession();
 			if (isSuccess) {
-				session.setAttribute("succMsg", "Xoa thành công");
+				session.setAttribute("succMsg", "Cập nhật thành công");
 				resp.sendRedirect("admin/quanlySanPham.jsp");
 			} else {
 				session.setAttribute("failMsg", "Cập nhật thất bại");

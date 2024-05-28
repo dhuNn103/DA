@@ -91,12 +91,35 @@
 								} else {
 								%>
 								<p>
-								<form action="LogoutServlet" method="post">
-									<button type="submit" class="btn btn-primary text-white ms-4">Đăng
+									<button class="btn btn-primary text-white ms-4"
+										data-bs-toggle="modal" data-bs-target="#exampleModal">Đăng
 										xuất</button>
+								</p>
+								<form action="LogoutServlet" method="post">
+									<div class="modal fade" id="exampleModal" tabindex="-1"
+										aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLabel"></h5>
+													<button type="button" class="btn-close"
+														data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+												<div class="modal-body">
+													<div class="text-center">
+														<h4>Bạn có chắc muốn đăng xuất</h4>
+														<button type="button" class="btn btn-secondary"
+															data-bs-dismiss="modal">Không</button>
+														<button type="submit" class="btn btn-primary">Có</button>
+													</div>
+												</div>
+												<div class="modal-footer"></div>
+											</div>
+										</div>
+									</div>
 								</form>
 								Hi,
-								<%=session.getAttribute("emls")%>								
+								<%=session.getAttribute("emls")%>
 								<%
 								}
 								%>
@@ -184,8 +207,8 @@
 					<div class="col-md-3 pt-1">
 						<nav class="navbar navbar-expand-sm justify-content-end"
 							role="navigation">
-							<form action="search_results.html" method="get" class="d-flex">
-								<input value="" type="text" name="txt" class="form-control me-2"
+							<form action="search.jsp" method="post" class="d-flex">
+								<input value="" type="search" name="search" class="form-control me-2"
 									placeholder="Search..." aria-label="Search">
 								<button class="btn btn-light sea" type="submit"
 									aria-label="Submit search">

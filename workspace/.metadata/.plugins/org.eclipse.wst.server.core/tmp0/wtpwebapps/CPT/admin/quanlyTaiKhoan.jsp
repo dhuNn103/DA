@@ -40,11 +40,11 @@
 		<table class="table table-bordered mt-3">
 			<thead>
 				<tr>
-					<th scope="col" style="width: 100px">Họ tên</th>
-					<th scope="col">Email</th>
-					<th scope="col">SĐT</th>
-					<th scope="col" style="width: 30px">Địa chỉ</th>
-					<th scope="col">Mật khẩu</th>
+					<th scope="col" style="width: 110px">Họ tên</th>
+					<th scope="col" style="width: 30px">Email</th>
+					<th scope="col" style="width: 30px">SĐT</th>
+					<th scope="col" >Địa chỉ</th>
+					<th scope="col" style="width: 150px">Mật khẩu</th>
 					<th scope="col" style="width: 20px">Id vai trò</th>
 					<th>Actions</th>
 				</tr>

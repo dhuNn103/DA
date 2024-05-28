@@ -15,4 +15,15 @@ public interface SanPhamDao {
 	public boolean editSanPham(SanPham sp);
 	
 	public boolean deleteSanPham(int id);
+	
+	public List<SanPham> getNewSanPham();
+	
+	public List<SanPham> getAllSanPham();
+	
+	public List<SanPham> getAllNewSanPham();
+	
+	public List<SanPham> getAllSanPham2();
+	
+	public List<SanPham> getSanPhamSearch(String search);
+	
 }

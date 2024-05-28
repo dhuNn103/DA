@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<%@include file="all/css.jsp"%>
+<title>Thông tin tài khoản</title>
+</head>
+<body>
+	<div class="container mt-4 pt-5">
+		<div class="row ">
+			<div class="col-12 col-sm-8 col-md-5 m-auto">
+				<div class="card mx-5">
+					<div class="card-body bg-body-tertiary">
+						<h2 class="text-center">Thông tin cá nhân</h2>
+
+						<form action="register" method="post">
+							<div class="input-group">
+								<label for="txtname">Họ tên</label> <input type="text"
+									name="txtname" id="txtname" class="form-control ">
+							</div>
+							<div class="input-group">
+								<label for="txtemail">Email</label> <input type="text"
+									name="txtemail" id="txtemail" class="form-control ">
+							</div>
+							<div class="input-group">
+								<label for="txtphone">Số điện thoại</label> <input type="text"
+									maxlength="10" name="txtphone" id="txtphone"
+									class="form-control ">
+							</div>
+							<div class="input-group">
+								<label for="txtaddr">Địa chỉ</label> <input type="text"
+									name="txtaddr" id="txtaddr" class="form-control ">
+							</div>
+							<div class="input-group">
+								<label for="txtpassword">Mật khẩu</label> <input type="password"
+									name="txtpassword" id="txtpassword" class="form-control" placeholder="Mật khẩu ít nhất là 8 kí tự">
+							</div>
+							<div class="text-center mt-3">
+								<button class="btn btn-primary" id="btndangky">Đăng Ký</button>
+							</div>
+							<div class="pt-3 text-center text-primary">
+								<a href="login.jsp" class="nav-link">Bạn đã có tài khoản?</a> 
+								<a	href="index.jsp" class="nav-link d-flex justify-content-end">Hủy</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

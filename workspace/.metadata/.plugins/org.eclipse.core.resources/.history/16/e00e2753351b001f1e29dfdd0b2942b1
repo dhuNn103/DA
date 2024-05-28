@@ -1,0 +1,232 @@
+package com.CPT.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.CPT.Entities.SanPham;
+
+public class SanPhamDaoImpl implements SanPhamDao {
+
+	private Connection conn;
+
+	public SanPhamDaoImpl(Connection conn) {
+		super();
+		this.conn = conn;
+	}
+
+	@Override
+	public boolean AdSanPham(SanPham sp) {
+		boolean f = false;
+		try {
+			String sql = "insert into san_pham( id_danh_muc, ten_san_pham, gia_cu, gia_moi, mo_ta, ngay_tao, ngay_sua, hinh_anh, loai_san_pham, tinh_trang) values(?,?,?,?,?,?,?,?,?,?)";
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ps.setInt(1, sp.getIddanhmuc());
+			ps.setString(2, sp.getTensanpham());
+			ps.setString(3, sp.getGiacu());
+			ps.setString(4, sp.getGiamoi());
+			ps.setString(5, sp.getMota());
+			ps.setString(6, sp.getNgaytao());
+			ps.setString(7, sp.getNgaysua());
+			ps.setString(8, sp.getHinhanh());
+			ps.setString(9, sp.getLoaisanpham());
+			ps.setString(10, sp.getTinhtrang());
+
+			int i = ps.executeUpdate();
+
+			if (i == 1) {
+
+				f = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return f;
+	}
+
+	@Override
+	public List<SanPham> getSanPhamAll() {
+		List<SanPham> spList = new ArrayList<SanPham>();
+		SanPham sp = null;
+		try {
+			String sql = "select * from san_pham";
+			PreparedStatement preparedStatement = conn.prepareStatement(sql);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				sp = new SanPham();
+				sp.setId(resultSet.getInt(1));
+				sp.setIddanhmuc(resultSet.getInt(2));
+				sp.setTensanpham(resultSet.getString(3));
+				sp.setGiacu(resultSet.getString(4));
+				sp.setGiamoi(resultSet.getString(5));
+				sp.setMota(resultSet.getString(6));
+				sp.setNgaytao(resultSet.getString(7));
+				sp.setNgaysua(resultSet.getString(8));
+				sp.setHinhanh(resultSet.getString(9));
+				sp.setLoaisanpham(resultSet.getString(10));
+				sp.setTinhtrang(resultSet.getString(11));
+
+				spList.add(sp);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return spList;
+
+	}
+
+	@Override
+	public SanPham getSanPhamById(int id) {
+		SanPham sp = null;
+		try {
+			String sql = "select * from san_pham where id_san_pham = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				sp = new SanPham();
+				sp.setId(rs.getInt("id_san_pham"));
+				sp.setIddanhmuc(rs.getInt("id_danh_muc"));
+				sp.setTensanpham(rs.getString("ten_san_pham"));
+				sp.setGiacu(rs.getString("gia_cu"));
+				sp.setGiamoi(rs.getString("gia_moi"));
+				sp.setMota(rs.getString("mo_ta"));
+				sp.setNgaytao(rs.getString("ngay_tao"));
+				sp.setNgaysua(rs.getString("ngay_sua"));
+				sp.setHinhanh(rs.getString("hinh_anh"));
+				sp.setLoaisanpham(rs.getString("loai_san_pham"));
+				sp.setTinhtrang(rs.getString("tinh_trang"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sp;
+	}
+
+	@Override
+	public boolean editSanPham(SanPham sp) {
+		boolean f = false;
+		try {
+			String sql = "update san_pham set id_danh_muc = ?, ten_san_pham = ?, gia_cu = ?, gia_moi = ?, mo_ta =?, ngay_tao=?, ngay_sua=?, hinh_anh = ?, loai_san_pham = ?, tinh_trang = ? where id_san_pham = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, sp.getIddanhmuc());
+			ps.setString(2, sp.getTensanpham());
+			ps.setString(3, sp.getGiacu());
+			ps.setString(4, sp.getGiamoi());
+			ps.setString(5, sp.getMota());
+			ps.setString(6, sp.getNgaytao());
+			ps.setString(7, sp.getNgaysua());
+			ps.setString(8, sp.getHinhanh());
+			ps.setString(9, sp.getLoaisanpham());
+			ps.setString(10, sp.getTinhtrang());
+			ps.setInt(11, sp.getId());
+
+			int i = ps.executeUpdate();
+			if (i == 1) {
+				f = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return f;
+	}
+
+	@Override
+	public boolean deleteSanPham(int id) {
+		boolean f = false;
+		try {
+			String sql = "delete from san_pham where id_san_pham = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			int i = ps.executeUpdate();
+			if (i == 1) {
+				f = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return f;
+	}
+
+	@Override
+	public List<SanPham> getNewSanPham() {
+		List<SanPham> list = new ArrayList<SanPham>();
+		SanPham p = null;
+		try {
+			String sql = "select * from san_pham where loai_san_pham = ? and tinh_trang = ?  order by id_san_pham desc";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, "new");
+			ps.setString(2, "còn hàng");
+
+			ResultSet rs = ps.executeQuery();
+			int i = 1;
+			while (rs.next() && i <= 4) {
+				p = new SanPham();
+				p.setId(rs.getInt(1));
+				p.setIddanhmuc(rs.getInt(2));
+				p.setTensanpham(rs.getString(3));
+				p.setGiacu(rs.getString(4));
+				p.setGiamoi(rs.getString(5));
+				p.setMota(rs.getString(6));
+				p.setNgaytao(rs.getString(7));
+				p.setNgaysua(rs.getString(8));
+				p.setHinhanh(rs.getString(9));
+				p.setLoaisanpham(rs.getString(10));
+				p.setTinhtrang(rs.getString(11));
+
+				list.add(p);
+				i++;
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	@Override
+	public List<SanPham> getOldSanPham() {
+		List<SanPham> list = new ArrayList<SanPham>();
+		SanPham p = null;
+		try {
+			String sql = "select * from san_pham where loai_san_pham = ? and tinh_trang = ?  order by id_san_pham desc";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, sql);
+			ps.setString(2, sql);
+
+			ResultSet rs = ps.executeQuery();
+			int i = 1;
+			while (rs.next() && i <= 4) {
+				p = new SanPham();
+				p.setId(rs.getInt(1));
+				p.setIddanhmuc(rs.getInt(2));
+				p.setTensanpham(rs.getString(3));
+				p.setGiacu(rs.getString(4));
+				p.setGiamoi(rs.getString(5));
+				p.setMota(rs.getString(6));
+				p.setNgaytao(rs.getString(7));
+				p.setNgaysua(rs.getString(8));
+				p.setHinhanh(rs.getString(9));
+				p.setLoaisanpham(rs.getString(10));
+				p.setTinhtrang(rs.getString(11));
+
+				list.add(p);
+				i++;
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	
+
+}

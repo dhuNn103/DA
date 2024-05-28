@@ -21,7 +21,7 @@ public class SanPhamDaoImpl implements SanPhamDao {
 	public boolean AdSanPham(SanPham sp) {
 		boolean f = false;
 		try {
-			String sql = "insert into san_pham( id_danh_muc, ten_san_pham, gia_cu, gia_moi, mo_ta, ngay_tao, ngay_sua, hinh_anh) values(?,?,?,?,?,?,?,?)";
+			String sql = "insert into san_pham( id_danh_muc, ten_san_pham, gia_cu, gia_moi, mo_ta, ngay_tao, ngay_sua, hinh_anh, loai_san_pham, tinh_trang) values(?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
 
 			ps.setInt(1, sp.getIddanhmuc());
@@ -32,6 +32,8 @@ public class SanPhamDaoImpl implements SanPhamDao {
 			ps.setString(6, sp.getNgaytao());
 			ps.setString(7, sp.getNgaysua());
 			ps.setString(8, sp.getHinhanh());
+			ps.setString(9, sp.getLoaisanpham());
+			ps.setString(10, sp.getTinhtrang());
 
 			int i = ps.executeUpdate();
 
@@ -65,6 +67,9 @@ public class SanPhamDaoImpl implements SanPhamDao {
 				sp.setNgaytao(resultSet.getString(7));
 				sp.setNgaysua(resultSet.getString(8));
 				sp.setHinhanh(resultSet.getString(9));
+				sp.setLoaisanpham(resultSet.getString(10));
+				sp.setTinhtrang(resultSet.getString(11));
+
 				spList.add(sp);
 			}
 		} catch (Exception e) {
@@ -94,6 +99,8 @@ public class SanPhamDaoImpl implements SanPhamDao {
 				sp.setNgaytao(rs.getString("ngay_tao"));
 				sp.setNgaysua(rs.getString("ngay_sua"));
 				sp.setHinhanh(rs.getString("hinh_anh"));
+				sp.setLoaisanpham(rs.getString("loai_san_pham"));
+				sp.setTinhtrang(rs.getString("tinh_trang"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -105,7 +112,7 @@ public class SanPhamDaoImpl implements SanPhamDao {
 	public boolean editSanPham(SanPham sp) {
 		boolean f = false;
 		try {
-			String sql = "update san_pham set id_danh_muc = ?, ten_san_pham = ?, gia_cu = ?, gia_moi = ?, mo_ta =?, ngay_tao=?, ngay_sua=?, hinh_anh = ? where id_san_pham = ?";
+			String sql = "update san_pham set id_danh_muc = ?, ten_san_pham = ?, gia_cu = ?, gia_moi = ?, mo_ta =?, ngay_tao=?, ngay_sua=?, hinh_anh = ?, loai_san_pham = ?, tinh_trang = ? where id_san_pham = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, sp.getIddanhmuc());
 			ps.setString(2, sp.getTensanpham());
@@ -115,7 +122,9 @@ public class SanPhamDaoImpl implements SanPhamDao {
 			ps.setString(6, sp.getNgaytao());
 			ps.setString(7, sp.getNgaysua());
 			ps.setString(8, sp.getHinhanh());
-			ps.setInt(9, sp.getId());
+			ps.setString(9, sp.getLoaisanpham());
+			ps.setString(10, sp.getTinhtrang());
+			ps.setInt(11, sp.getId());
 
 			int i = ps.executeUpdate();
 			if (i == 1) {
@@ -135,13 +144,194 @@ public class SanPhamDaoImpl implements SanPhamDao {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			int i = ps.executeUpdate();
-			if(i == 1) {
+			if (i == 1) {
 				f = true;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return f;
+	}
+
+	@Override
+	public List<SanPham> getNewSanPham() {
+		List<SanPham> list = new ArrayList<SanPham>();
+		SanPham p = null;
+		try {
+			String sql = "select * from san_pham where loai_san_pham = ? order by id_san_pham desc";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, "new");
+
+			ResultSet rs = ps.executeQuery();
+			int i = 1;
+			while (rs.next() && i <= 4) {
+				p = new SanPham();
+				p.setId(rs.getInt(1));
+				p.setIddanhmuc(rs.getInt(2));
+				p.setTensanpham(rs.getString(3));
+				p.setGiacu(rs.getString(4));
+				p.setGiamoi(rs.getString(5));
+				p.setMota(rs.getString(6));
+				p.setNgaytao(rs.getString(7));
+				p.setNgaysua(rs.getString(8));
+				p.setHinhanh(rs.getString(9));
+				p.setLoaisanpham(rs.getString(10));
+				p.setTinhtrang(rs.getString(11));
+
+				list.add(p);
+				i++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	@Override
+	public List<SanPham> getAllSanPham() {
+		List<SanPham> listAll = new ArrayList<SanPham>();
+		String sql = "select * from san_pham where (loai_san_pham = ? or loai_san_pham = ?) and (tinh_trang = ? or tinh_trang = ?) order by id_san_pham desc";
+
+		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+			ps.setString(1, "new");
+			ps.setString(2, "old");
+			ps.setString(3, "hết hàng");
+			ps.setString(4, "còn hàng");
+
+			try (ResultSet rs = ps.executeQuery()) {
+				int i = 1;
+				while (rs.next() && i <= 8) {
+					SanPham p = new SanPham();
+					p.setId(rs.getInt(1));
+					p.setIddanhmuc(rs.getInt(2));
+					p.setTensanpham(rs.getString(3));
+					p.setGiacu(rs.getString(4));
+					p.setGiamoi(rs.getString(5));
+					p.setMota(rs.getString(6));
+					p.setNgaytao(rs.getString(7));
+					p.setNgaysua(rs.getString(8));
+					p.setHinhanh(rs.getString(9));
+					p.setLoaisanpham(rs.getString(10));
+					p.setTinhtrang(rs.getString(11));
+
+					listAll.add(p);
+					i++;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return listAll;
+	}
+
+	@Override
+	public List<SanPham> getAllNewSanPham() {
+		List<SanPham> list = new ArrayList<SanPham>();
+		SanPham p = null;
+		try {
+			String sql = "select * from san_pham where loai_san_pham = ? order by id_san_pham desc";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, "new");
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				p = new SanPham();
+				p.setId(rs.getInt(1));
+				p.setIddanhmuc(rs.getInt(2));
+				p.setTensanpham(rs.getString(3));
+				p.setGiacu(rs.getString(4));
+				p.setGiamoi(rs.getString(5));
+				p.setMota(rs.getString(6));
+				p.setNgaytao(rs.getString(7));
+				p.setNgaysua(rs.getString(8));
+				p.setHinhanh(rs.getString(9));
+				p.setLoaisanpham(rs.getString(10));
+				p.setTinhtrang(rs.getString(11));
+
+				list.add(p);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	@Override
+	public List<SanPham> getAllSanPham2() {
+		List<SanPham> listAll = new ArrayList<SanPham>();
+		String sql = "select * from san_pham where (loai_san_pham = ? or loai_san_pham = ?) and (tinh_trang = ? or tinh_trang = ?) order by id_san_pham desc";
+
+		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+			ps.setString(1, "new");
+			ps.setString(2, "old");
+			ps.setString(3, "hết hàng");
+			ps.setString(4, "còn hàng");
+
+			try (ResultSet rs = ps.executeQuery()) {
+
+				while (rs.next()) {
+					SanPham p = new SanPham();
+					p.setId(rs.getInt(1));
+					p.setIddanhmuc(rs.getInt(2));
+					p.setTensanpham(rs.getString(3));
+					p.setGiacu(rs.getString(4));
+					p.setGiamoi(rs.getString(5));
+					p.setMota(rs.getString(6));
+					p.setNgaytao(rs.getString(7));
+					p.setNgaysua(rs.getString(8));
+					p.setHinhanh(rs.getString(9));
+					p.setLoaisanpham(rs.getString(10));
+					p.setTinhtrang(rs.getString(11));
+
+					listAll.add(p);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return listAll;
+	}
+
+	@Override
+	public List<SanPham> getSanPhamSearch(String search) {
+		List<SanPham> list = new ArrayList<SanPham>();
+		SanPham sp = null;
+		try {
+			String sql = "select * from san_pham where ten_san_pham like ? or loai_san_pham like ? or gia_moi like ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, "%"+search+"%");
+			ps.setString(2, "%"+search+"%");
+			ps.setString(3, "%"+search+"%");
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				sp = new SanPham();
+				sp.setId(rs.getInt(1));
+				sp.setIddanhmuc(rs.getInt(2));
+				sp.setTensanpham(rs.getString(3));
+				sp.setGiacu(rs.getString(4));
+				sp.setGiamoi(rs.getString(5));
+				sp.setMota(rs.getString(6));
+				sp.setNgaytao(rs.getString(7));
+				sp.setNgaysua(rs.getString(8));
+				sp.setHinhanh(rs.getString(9));
+				sp.setLoaisanpham(rs.getString(10));
+				sp.setTinhtrang(rs.getString(11));
+				
+				list.add(sp);
+			}
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 }

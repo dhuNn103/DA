@@ -16,6 +16,12 @@
 	<%@include file="/admin/template/sidebar.jsp"%>
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 		<h4>Edit tài khoản</h4>
+		
+			<c:if test="${ not empty succMsg }">
+				<h5 class="text-success text-center">${succMsg }</h5>>
+				<c:remove var="succMsg" scope="session" />
+			</c:if>
+			
 			<div class="pt-1" style="border: 1px gray solid; border-radius: 5px;">			
 			<%
 			int id = Integer.parseInt(request.getParameter("id"));

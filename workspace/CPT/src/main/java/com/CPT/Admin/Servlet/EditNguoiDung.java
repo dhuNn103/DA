@@ -47,10 +47,10 @@ public class EditNguoiDung extends HttpServlet {
 			
 			HttpSession session = req.getSession();
 			if(f) {
-				session.setAttribute("", "Cập nhật thành công");
+				session.setAttribute("succMsg", "Cập nhật thành công");
 				resp.sendRedirect("admin/quanlyTaiKhoan.jsp");
 			}else {
-				session.setAttribute("", "Lỗi! vui lòng thử lại");
+				session.setAttribute("succMsg", "Lỗi! vui lòng thử lại");
 				resp.sendRedirect("admin/TaiKhoanEdit.jsp");
 			}
 		} catch (Exception e) {

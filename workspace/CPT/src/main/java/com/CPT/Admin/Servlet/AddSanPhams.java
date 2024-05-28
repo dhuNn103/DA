@@ -36,8 +36,10 @@ public class AddSanPhams extends HttpServlet {
 			String NgaySua = req.getParameter("ngaysua");
 			Part Image = req.getPart("anh");
 			String FileImage = Image.getSubmittedFileName();
+			String Loai = req.getParameter("loai");
+			String Tinhtrang = req.getParameter("tinhtrang");
 			
-			SanPham sp = new SanPham(idDanhMuc, Name, GiaCu, GiaMoi, MoTa, FileImage, NgayTao, NgaySua);
+			SanPham sp = new SanPham(idDanhMuc, Name, GiaCu, GiaMoi, MoTa, FileImage, NgayTao, NgaySua, Loai, Tinhtrang);
 
 			SanPhamDaoImpl dao = new SanPhamDaoImpl(DBConnect.getConnect());
 			boolean f = dao.AdSanPham(sp);

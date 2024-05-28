@@ -10,13 +10,15 @@ public class SanPham {
 	private String hinhanh;
 	private String ngaytao;
 	private String ngaysua;
+	private String loaisanpham;
+	private String tinhtrang;
 	
 	public SanPham() {
 		super();
 	}
 
 	public SanPham(int iddanhmuc, String tensanpham, String giacu, String giamoi, String mota, String hinhanh,
-			String ngaytao, String ngaysua) {
+			String ngaytao, String ngaysua, String loaisanpham, String tinhtrang) {
 		super();
 		this.iddanhmuc = iddanhmuc;
 		this.tensanpham = tensanpham;
@@ -26,6 +28,8 @@ public class SanPham {
 		this.hinhanh = hinhanh;
 		this.ngaytao = ngaytao;
 		this.ngaysua = ngaysua;
+		this.loaisanpham = loaisanpham;
+		this.tinhtrang = tinhtrang;
 	}
 
 	public int getId() {
@@ -99,5 +103,20 @@ public class SanPham {
 	public void setNgaysua(String ngaysua) {
 		this.ngaysua = ngaysua;
 	}
+	
+	public String getLoaisanpham() {
+		return loaisanpham;
+	}
+	
+	public void setLoaisanpham(String loaisanpham) {
+		this.loaisanpham = loaisanpham;
+	}
 
+	public String getTinhtrang() {
+		return tinhtrang;
+	}
+	
+	public void setTinhtrang(String tinhtrang) {
+		this.tinhtrang = tinhtrang;
+	}
 }

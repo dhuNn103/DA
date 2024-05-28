@@ -17,5 +17,5 @@ public interface NguoiDungDao {
 	public boolean editNguoiDung(NguoiDung end);
 
 	public boolean deleteNguoiDung(int id);
-
+	
 }

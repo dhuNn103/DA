@@ -1,0 +1,10 @@
+package com.CPT.Dao;
+
+import java.util.List;
+
+import com.CPT.Entities.GioHang;
+
+public interface GioHangDao {
+	List<GioHang> getCartByAccountID(int  idnguoidung);
+	void  editsoluonggh(int idnguoidung, int ghid, int soluong);
+}

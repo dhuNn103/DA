@@ -1,0 +1,8 @@
+package com.CPT.Admin.Servlet;
+
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/SearchSanPham")
+public class SearchSanPham {
+
+}
