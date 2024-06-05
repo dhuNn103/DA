@@ -1,0 +1,45 @@
+<%@page import="com.CPT.Entities.HinhAnhPage"%>
+<%@page import="com.CPT.DB.DBConnect"%>
+<%@page import="com.CPT.Dao.HinhAnhPageDaoImpl"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<%@include file="/all/css.jsp"%>
+<title>Edit Img</title>
+</head>
+<body>
+	<%@include file="/admin/template/header.jsp"%>
+	<%@include file="/admin/template/sidebar.jsp"%>
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+		<h4>Chinh sửa img</h4>
+		<div class="pt-1" style="border: 1px gray solid; border-radius: 5px;">
+		<%
+		int i = Integer.parseInt(request.getParameter("id"));
+		HinhAnhPageDaoImpl dao = new HinhAnhPageDaoImpl(DBConnect.getConnect());
+		HinhAnhPage img = dao.getAnhPageById(id);
+		%>
+			<div class="px-2">
+				<input type="hidden" name="id" id="id" >
+				<div>
+					<label class="form-label">Tên ảnh</label> <input type="text"
+						name="names" class="form-control">
+				</div>
+				<div>
+					<label class="form-label">Hình ảnh</label> <br> <img alt=""
+						src="" style="height: 120px; width: 320px">
+				</div>
+				<br>
+				<input type="file" name="img">
+				<div class="d-flex justify-content-end">
+					<a href="quanlyAnhPage.jsp" class="btn btn-secondary p-2 m-2 ">Quay
+						lại</a>
+					<button type="submit" class="btn btn-danger p-2 m-2">Lưu</button>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

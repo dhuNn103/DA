@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<%@include file="/all/css.jsp"%>
+<title>Quản lý thống kê</title>
+<style type="text/css">
+#chartContainer {
+	width: 80%;
+	height: 400px;
+	margin: auto;
+}
+</style>
+</head>
+<body>
+	<%@include file="/admin/template/header.jsp"%>
+	<%@include file="/admin/template/sidebar.jsp"%>
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+		<h4 class="pt-3">Thống kê</h4>
+		<div id="chartContainer">
+			<canvas id="myChart"></canvas>
+		</div>
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script type="text/javascript">
+		const ctx = document.getElementById('myChart').getContext('2d');
+		const myChart = new Chart(ctx, {
+			type : 'line',
+			data : {
+				labels : [ 'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4',
+						'Tháng 5', 'Tháng 6', 'Tháng 7' ],
+				datasets : [ {
+					label : 'Số liệu',
+					data : [ 12, 19, 3, 5, 2, 3, 7 ],
+					backgroundColor : 'rgba(75, 192, 192, 0.2)',
+					borderColor : 'rgba(75, 192, 192, 1)',
+					borderWidth : 1,
+					fill : true
+				} ]
+			},
+			options : {
+				scales : {
+					y : {
+						beginAtZero : true
+					}
+				}
+			}
+		});
+	</script>
+</body>
+</html>

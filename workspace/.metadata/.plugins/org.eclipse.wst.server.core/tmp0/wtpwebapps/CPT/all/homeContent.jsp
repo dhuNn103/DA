@@ -1,3 +1,5 @@
+<%@page import="com.CPT.Entities.HinhAnhPage"%>
+<%@page import="com.CPT.Dao.HinhAnhPageDaoImpl"%>
 <%@page import="com.CPT.Entities.SanPham"%>
 <%@page import="java.util.List"%>
 <%@page import="com.CPT.DB.DBConnect"%>
@@ -13,20 +15,43 @@
 <title>Insert title here</title>
 <style type="text/css">
 .back-image {
-	background: url("img/laptop1.jpg");
 	height: 50vh;
 	width: 100%;
-	background-repeat: no-repeat;
-	background-size: cover;
+	position: relative;
+	overflow: hidden;
+}
+
+.back-image img {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .card-ho:hover {
 	background-color: #f2f2f2;
 }
+
+.zoom:hover {
+	transform: scale(1.055);
+}
 </style>
 </head>
 <body>
-	<div class="container-fluid back-image"></div>
+	<%
+	HinhAnhPageDaoImpl daos = new HinhAnhPageDaoImpl(DBConnect.getConnect());
+	List<HinhAnhPage> lists = daos.getAllHinhAnhPages();
+	for (HinhAnhPage a : lists) {
+	%>
+	<div class="container-fluid back-image">
+		<img src="img/<%=a.getHinhanh()%>" alt="Laptop Image">
+	</div>
+	<%
+	}
+	%>
+
 	<section>
 		<div class="container px-5 pt-3">
 			<h3>SẢN PHẨM MỚI</h3>
@@ -39,10 +64,13 @@
 				%>
 				<div class="col-md-3">
 					<div class="card card-ho">
-						<div class="card-body text-center">
-							<img alt="" src="img/<%=p.getHinhanh()%>"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p><%=p.getTensanpham()%></p>
+						<div class="card-body text-center ">
+							<div class="zoom">
+								<img alt="" src="img/<%=p.getHinhanh()%>"
+									style="width: 250px; height: 250px" class="image-thumblin">
+							</div>
+
+							<p class="pt-3"><%=p.getTensanpham()%></p>
 							<h5 class="text-danger">
 								Giá mới:
 								<%=p.getGiamoi()%>.đ
@@ -55,13 +83,15 @@
 								<%
 								if (p.getTinhtrang().equals("còn hàng")) {
 								%>
-								<a href="ChitietSanPham.jsp?id=<%=p.getId()%>" class="btn btn-success p-2 m-2">Chi tiết</a> <a
-									href="#" class="btn btn-danger p-2 m-2"><i
+								<a href="ChitietSanPham.jsp?id=<%=p.getId()%>"
+									class="btn btn-success p-2 m-2">Chi tiết</a> <a href="#"
+									class="btn btn-danger p-2 m-2"><i
 									class="fa-brands fa-opencart"></i> Giỏ hàng</a>
 								<%
 								} else {
 								%>
-								<a href="ChitietSanPham.jsp?id=<%=p.getId()%>" class="btn btn-success p-2 m-2">Chi tiết</a>
+								<a href="ChitietSanPham.jsp?id=<%=p.getId()%>"
+									class="btn btn-success p-2 m-2">Chi tiết</a>
 								<%
 								}
 								%>
@@ -89,9 +119,12 @@
 				<div class="col-md-3  py-2">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img/<%=p.getHinhanh()%>"
-								style="width: 250px; height: 250px" class="image-thumblin">
-							<p><%=p.getTensanpham()%></p>
+						<div class="zoom">
+								<img alt="" src="img/<%=p.getHinhanh()%>"
+									style="width: 250px; height: 250px" class="image-thumblin">
+							</div>
+							
+							<p class="pt-3"><%=p.getTensanpham()%></p>
 							<h5 class="text-danger">
 								Giá mới:
 								<%=p.getGiamoi()%>
@@ -107,13 +140,14 @@
 								String tinhTrang = p.getTinhtrang();
 								if ("còn hàng".equals(tinhTrang)) {
 								%>
-								<a href="ChitietSanPham.jsp" class="btn btn-success p-2 m-2">Chi tiết</a> <a
-									href="#" class="btn btn-danger p-2 m-2"><i
+								<a href="ChitietSanPham.jsp" class="btn btn-success p-2 m-2">Chi
+									tiết</a> <a href="#" class="btn btn-danger p-2 m-2"><i
 									class="fa-brands fa-opencart"></i> Giỏ hàng</a>
 								<%
 								} else {
 								%>
-								<a href="ChitietSanPham.jsp" class="btn btn-success p-2 m-2">Chi tiết</a>
+								<a href="ChitietSanPham.jsp" class="btn btn-success p-2 m-2">Chi
+									tiết</a>
 								<%
 								}
 								%>

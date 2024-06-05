@@ -177,3 +177,102 @@ May 27, 2024 16:28:18.20 [2084:8028:0527/162818.202:ERROR:connection_factory_imp
 May 27, 2024 16:32:56.08 [2084:8028:0527/163256.088:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
 May 27, 2024 19:32:57.91 [2084:8028:0527/193257.918:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
 May 27, 2024 22:48:20.61 Created TensorFlow Lite XNNPACK delegate for CPU.
+
+May 30, 2024 12:59:04.80 NEW SESSION
+May 30, 2024 12:59:04.82 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 30, 2024 12:59:18.88 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 30, 2024 13:33:52.66 [14752:20456:0530/133352.660:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+May 30, 2024 13:33:59.26 [14752:20456:0530/133359.264:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+May 30, 2024 13:34:02.42 [14752:20456:0530/133402.423:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+May 30, 2024 13:34:11.06 [14752:20456:0530/133411.066:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+May 30, 2024 13:42:17.91 [14752:19552:0530/134217.912:ERROR:device_event_log_impl.cc(195)] [13:42:17.912] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 13:42:17.92 [14752:19552:0530/134217.923:ERROR:device_event_log_impl.cc(195)] [13:42:17.923] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+May 30, 2024 13:42:20.01 [14752:19552:0530/134220.016:ERROR:device_event_log_impl.cc(195)] [13:42:20.016] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 13:42:20.02 [14752:19552:0530/134220.027:ERROR:device_event_log_impl.cc(195)] [13:42:20.027] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+May 30, 2024 13:42:50.22 [14752:19552:0530/134250.221:ERROR:device_event_log_impl.cc(195)] [13:42:50.219] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 13:42:50.23 [14752:19552:0530/134250.230:ERROR:device_event_log_impl.cc(195)] [13:42:50.230] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+May 30, 2024 13:42:52.08 [14752:19552:0530/134252.086:ERROR:device_event_log_impl.cc(195)] [13:42:52.085] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 13:42:52.09 [14752:19552:0530/134252.098:ERROR:device_event_log_impl.cc(195)] [13:42:52.097] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+May 30, 2024 13:50:01.73 [14752:19552:0530/135001.733:ERROR:device_event_log_impl.cc(195)] [13:50:01.732] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 13:50:01.74 [14752:19552:0530/135001.745:ERROR:device_event_log_impl.cc(195)] [13:50:01.740] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+May 30, 2024 14:03:17.40 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 30, 2024 14:06:50.04 [10424:11824:0530/140650.046:ERROR:device_event_log_impl.cc(195)] [14:06:50.045] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 14:06:50.04 [10424:11824:0530/140650.049:ERROR:device_event_log_impl.cc(195)] [14:06:50.049] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+May 30, 2024 14:06:50.91 [10424:11824:0530/140650.918:ERROR:device_event_log_impl.cc(195)] [14:06:50.917] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 14:06:50.92 [10424:11824:0530/140650.923:ERROR:device_event_log_impl.cc(195)] [14:06:50.921] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+May 30, 2024 14:14:41.57 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 30, 2024 14:20:06.80 [15828:6240:0530/142006.800:ERROR:device_event_log_impl.cc(195)] [14:20:06.799] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 14:20:21.21 [15828:6240:0530/142021.211:ERROR:device_event_log_impl.cc(195)] [14:20:21.209] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 14:20:21.22 [15828:6240:0530/142021.224:ERROR:device_event_log_impl.cc(195)] [14:20:21.220] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+May 30, 2024 14:20:22.58 [15828:6240:0530/142022.586:ERROR:device_event_log_impl.cc(195)] [14:20:22.582] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 14:20:22.60 [15828:6240:0530/142022.601:ERROR:device_event_log_impl.cc(195)] [14:20:22.597] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+May 30, 2024 14:57:56.31 [6104:7384:0530/145756.318:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost
+May 30, 2024 14:58:01.37 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 30, 2024 15:06:00.88 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 30, 2024 15:08:40.82 [5860:16480:0530/150840.823:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost
+May 30, 2024 15:38:46.07 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 30, 2024 15:51:54.35 [18760:5588:0530/155154.359:ERROR:get_updates_processor.cc(263)] PostClientToServerMessage() failed during GetUpdates with error Network error (ERR_ABORTED)
+May 30, 2024 15:52:23.19 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 30, 2024 15:55:23.88 [18684:1828:0530/155523.882:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+May 30, 2024 15:58:56.77 [18684:1828:0530/155856.776:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+May 30, 2024 16:03:04.45 [18684:7992:0530/160304.454:ERROR:device_event_log_impl.cc(195)] [16:03:04.452] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 16:03:04.46 [18684:7992:0530/160304.461:ERROR:device_event_log_impl.cc(195)] [16:03:04.459] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+May 30, 2024 16:05:44.72 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 30, 2024 16:15:57.97 [7716:12464:0530/161557.979:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+May 30, 2024 16:15:59.99 [7716:12464:0530/161559.992:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -106
+May 30, 2024 16:17:08.21 [7716:12464:0530/161708.214:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -118
+May 30, 2024 16:20:01.76 [7716:12464:0530/162001.767:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+May 30, 2024 16:20:02.98 [7716:20104:0530/162002.983:ERROR:device_event_log_impl.cc(195)] [16:20:02.979] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+May 30, 2024 16:20:03.98 [7716:12464:0530/162003.983:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -106
+May 30, 2024 16:22:18.02 [7716:12464:0530/162218.021:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+May 30, 2024 16:22:20.05 [7716:12464:0530/162220.057:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -106
+May 30, 2024 16:24:49.39 [7716:12464:0530/162449.396:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+May 30, 2024 16:24:50.95 [7716:12464:0530/162450.950:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+
+May 30, 2024 18:54:10.65 NEW SESSION
+May 30, 2024 18:54:10.67 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 30, 2024 19:45:29.32 [10272:6224:0530/194529.320:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+May 30, 2024 20:41:36.29 [10272:12704:0530/204136.295:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+May 30, 2024 21:47:00.31 [10272:12704:0530/214700.315:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+
+Jun 03, 2024 13:09:16.92 NEW SESSION
+Jun 03, 2024 13:09:16.94 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 03, 2024 13:10:35.46 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 03, 2024 13:24:35.85 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 03, 2024 13:39:55.40 [3604:532:0603/133955.406:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+Jun 03, 2024 14:55:57.46 [3604:532:0603/145557.469:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -105
+Jun 03, 2024 15:08:01.09 [3604:13804:0603/150801.089:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+Jun 03, 2024 15:34:38.07 [3604:532:0603/153438.071:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+Jun 03, 2024 18:34:40.62 [3604:532:0603/183440.628:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -103
+Jun 03, 2024 18:42:22.86 [3604:13804:0603/184222.865:ERROR:device_event_log_impl.cc(195)] [18:42:22.863] USB: usb_service_win.cc:308 SetupDiEnumDeviceInterfaces: No more data is available. (0x103)
+Jun 03, 2024 18:42:23.08 [3604:532:0603/184223.082:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -106
+Jun 03, 2024 19:42:39.40 [3604:13804:0603/194239.408:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost
+Jun 03, 2024 19:47:17.13 [3604:532:0603/194717.137:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+
+Jun 03, 2024 22:05:06.77 NEW SESSION
+Jun 03, 2024 22:05:06.77 Created TensorFlow Lite XNNPACK delegate for CPU.
+
+Jun 03, 2024 22:14:49.02 NEW SESSION
+Jun 03, 2024 22:14:49.03 Created TensorFlow Lite XNNPACK delegate for CPU.
+
+Jun 04, 2024 13:11:21.27 NEW SESSION
+Jun 04, 2024 13:11:21.28 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 04, 2024 15:46:49.87 Created TensorFlow Lite XNNPACK delegate for CPU.
+
+Jun 04, 2024 16:08:10.86 NEW SESSION
+Jun 04, 2024 16:08:10.86 Created TensorFlow Lite XNNPACK delegate for CPU.
+
+Jun 04, 2024 21:29:54.05 NEW SESSION
+Jun 04, 2024 21:29:54.07 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 04, 2024 21:31:37.81 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 04, 2024 21:32:11.34 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 04, 2024 21:33:28.09 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 04, 2024 21:35:17.36 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 04, 2024 21:35:47.34 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 04, 2024 21:55:39.83 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 04, 2024 22:23:28.47 Created TensorFlow Lite XNNPACK delegate for CPU.
+
+Jun 04, 2024 22:28:25.48 NEW SESSION
+Jun 04, 2024 22:28:25.49 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 04, 2024 22:43:10.19 Created TensorFlow Lite XNNPACK delegate for CPU.
+Jun 05, 2024 24:51:18.04 [9384:7840:0605/005118.043:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost

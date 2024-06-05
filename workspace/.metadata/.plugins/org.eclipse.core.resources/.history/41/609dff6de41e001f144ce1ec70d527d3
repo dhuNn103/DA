@@ -1,0 +1,157 @@
+<%@page import="com.CPT.Entities.HinhAnhPage"%>
+<%@page import="com.CPT.Dao.HinhAnhPageDaoImpl"%>
+<%@page import="com.CPT.Entities.SanPham"%>
+<%@page import="java.util.List"%>
+<%@page import="com.CPT.DB.DBConnect"%>
+<%@page import="com.CPT.Dao.SanPhamDaoImpl"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+<style type="text/css">
+.back-image {
+	
+	height: 50vh;
+	width: 100%;
+	position: relative;
+            overflow: hidden;
+}
+.back-image img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+.card-ho:hover {
+	background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+<%
+HinhAnhPageDaoImpl daos = new HinhAnhPageDaoImpl(DBConnect.getConnect());
+List<HinhAnhPage> lists = daos.getAllHinhAnhPages();
+for (HinhAnhPage a : lists){%>
+	<div class="container-fluid back-image">
+		<img src="img/<%=%>" alt="Laptop Image">
+	</div>
+<%}
+
+%>
+	
+	<section>
+		<div class="container px-5 pt-3">
+			<h3>SẢN PHẨM MỚI</h3>
+			<div class="row my-3">
+
+				<%
+				SanPhamDaoImpl dao = new SanPhamDaoImpl(DBConnect.getConnect());
+				List<SanPham> list = dao.getNewSanPham();
+				for (SanPham p : list) {
+				%>
+				<div class="col-md-3">
+					<div class="card card-ho">
+						<div class="card-body text-center">
+							<img alt="" src="img/<%=p.getHinhanh()%>"
+								style="width: 250px; height: 250px" class="image-thumblin">
+							<p><%=p.getTensanpham()%></p>
+							<h5 class="text-danger">
+								Giá mới:
+								<%=p.getGiamoi()%>.đ
+							</h5>
+							<p class="" style="text-decoration: line-through;">
+								Giá cũ:
+								<%=p.getGiacu()%>.đ
+							</p>
+							<div class="button-container d-flex justify-content-center mx-4">
+								<%
+								if (p.getTinhtrang().equals("còn hàng")) {
+								%>
+								<a href="ChitietSanPham.jsp?id=<%=p.getId()%>"
+									class="btn btn-success p-2 m-2">Chi tiết</a> <a href="#"
+									class="btn btn-danger p-2 m-2"><i
+									class="fa-brands fa-opencart"></i> Giỏ hàng</a>
+								<%
+								} else {
+								%>
+								<a href="ChitietSanPham.jsp?id=<%=p.getId()%>"
+									class="btn btn-success p-2 m-2">Chi tiết</a>
+								<%
+								}
+								%>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%
+				}
+				%>
+			</div>
+			<div class="text-center mb-3">
+				<a href="All_new_SP.jsp" class="btn btn-primary ">Xem thêm</a>
+			</div>
+		</div>
+
+		<div class="container px-5">
+			<h3>SẢN PHẨM LIÊN QUAN</h3>
+			<div class="row">
+				<%
+				SanPhamDaoImpl dao1 = new SanPhamDaoImpl(DBConnect.getConnect());
+				List<SanPham> listAll = dao1.getAllSanPham();
+				for (SanPham p : listAll) {
+				%>
+				<div class="col-md-3  py-2">
+					<div class="card card-ho">
+						<div class="card-body text-center">
+							<img alt="" src="img/<%=p.getHinhanh()%>"
+								style="width: 250px; height: 250px" class="image-thumblin">
+							<p><%=p.getTensanpham()%></p>
+							<h5 class="text-danger">
+								Giá mới:
+								<%=p.getGiamoi()%>
+								đ
+							</h5>
+							<p class="" style="text-decoration: line-through;">
+								Giá cũ:
+								<%=p.getGiacu()%>
+								đ
+							</p>
+							<div class="button-container d-flex justify-content-center mx-4">
+								<%
+								String tinhTrang = p.getTinhtrang();
+								if ("còn hàng".equals(tinhTrang)) {
+								%>
+								<a href="ChitietSanPham.jsp" class="btn btn-success p-2 m-2">Chi
+									tiết</a> <a href="#" class="btn btn-danger p-2 m-2"><i
+									class="fa-brands fa-opencart"></i> Giỏ hàng</a>
+								<%
+								} else {
+								%>
+								<a href="ChitietSanPham.jsp" class="btn btn-success p-2 m-2">Chi
+									tiết</a>
+								<%
+								}
+								%>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%
+				}
+				%>
+			</div>
+			<div class="text-center mb-3">
+				<a href="All_SP.jsp" class="btn btn-primary ">Xem thêm</a>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

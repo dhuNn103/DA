@@ -1,7 +1,0 @@
-package com.CPT.Utils;
-
-import javax.servlet.http.HttpServlet;
-
-public class blook extends HttpServlet{
-	
-}

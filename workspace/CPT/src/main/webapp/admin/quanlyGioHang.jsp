@@ -12,8 +12,15 @@
 	<%@include file="/admin/template/sidebar.jsp"%>
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 		<h4 class="pt-3">Giỏ hàng</h4>
-		<div class="mx-5">
-			<a href="add_sp.jsp" class="btn btn-primary">Thêm mới sản phẩm</a>
+		<div class="mx-5 d-flex">
+			<a href="add_sp.jsp" class="btn btn-primary">Thêm mới</a>
+			<form class="d-flex mx-5" action="SearchSanPham.jsp" method="post">
+				<input class="form-control me-2 mx-5" type="search" name="names"
+					placeholder="Search..." aria-label="Search">
+				<button class="btn btn-light sea" type="submit">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</form>
 		</div>
 		<table class="table table-bordered mt-3">
 			<thead>

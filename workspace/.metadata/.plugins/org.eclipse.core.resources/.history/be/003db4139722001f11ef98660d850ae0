@@ -1,0 +1,149 @@
+<%@page import="com.CPT.Entities.GioiThieu"%>
+<%@page import="com.CPT.Dao.GioiThieuDaoImpl"%>
+<%@page import="com.CPT.Entities.HinhAnhPage"%>
+<%@page import="java.util.List"%>
+<%@page import="com.CPT.DB.DBConnect"%>
+<%@page import="com.CPT.Dao.HinhAnhPageDaoImpl"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<%@include file="all/css.jsp"%>
+<title>Giới thiệu</title>
+<style type="text/css">
+.back-image {
+	height: 50vh;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+.back-image img {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.ar {
+	filter: drop-shadow(0 0 5px gray);
+}
+
+.zoom:hover {
+	transform: scale(1.025);
+}
+</style>
+</head>
+<body>
+	
+	<jsp:include page="all/homeHeader.jsp"></jsp:include>
+	<%
+	HinhAnhPageDaoImpl daos = new HinhAnhPageDaoImpl(DBConnect.getConnect());
+	List<HinhAnhPage> lists = daos.getAllHinhAnhPages();
+	for (HinhAnhPage a : lists) {
+	%>
+	<div class="container-fluid back-image">
+		<img src="img/<%=a.getHinhanh()%>" alt="Laptop Image">
+	</div>
+	<%
+	}
+	%>
+	<div class="container pt-5 px-5">
+	<%
+	GioiThieuDaoImpl dao = new GioiThieuDaoImpl(DBConnect.getConnect());
+	List<GioiThieu> gtlist = dao.getAll();
+	for(GioiThieu gt: gtlist){
+	%>
+		<h2 class="text-center "><%=gt.getTieude() %></h2>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="fs-5">
+					<p class="" style="text-align: justify"><%=gt.getNoidung() %></p>
+					<br>
+				</div>
+			</div>
+			<div class="col-md-6 zoom">
+				<img alt="" src="img/<%=gt.getHinhanh() %>" style="height: 350px">
+			</div>
+		</div>
+		<%}
+	%>
+	</div>
+<!-- 		<h2 class="text-center pt-5">II. ĐỘI NGŨ NHÂN VIÊN</h2> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-6 zoom"> -->
+<!-- 				<img alt="" src="img/gt.jpg" style="height: 350px"> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-md-6 "> -->
+<!-- 				<div class="fs-5" style="text-align: justify"> -->
+<!-- 					<p>ALAPTER STORE tự hào có đội ngũ nhân viên chăm sóc khách -->
+<!-- 						hàng trẻ trung, năng động, chuyên nghiệp và có trình độ. Điều dễ -->
+<!-- 						dàng nhận thấy khi bạn đến ALAPTER STORE hay tiếp xúc qua điện -->
+<!-- 						thoại, nhân viên tư vấn của chúng tôi sẽ luôn hướng dẫn và cung -->
+<!-- 						cấp cho khách hàng những thông tin hữu ích với sự nhiệt tình và -->
+<!-- 						thân thiện nhất. Với phương châm “Mỗi khách hàng là một người -->
+<!-- 						bạn”, đội ngũ tư vấn viên luôn quan tâm tới nhu cầu của khách hàng -->
+<!-- 						chu đáo.</p> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<h2 class="text-center pt-5">III. HOẠT ĐỘNG - VĂN HÓA</h2> -->
+<!-- 		<p class="fs-5" style="text-align: justify">ALAPTER STORE tự hào -->
+<!-- 			có đội ngũ nhân viên chăm sóc khách hàng trẻ trung, năng động, chuyên -->
+<!-- 			nghiệp và có trình độ. Điều dễ dàng nhận thấy khi bạn đến ALAPTER -->
+<!-- 			STORE hay tiếp xúc qua điện thoại, nhân viên tư vấn của chúng tôi sẽ -->
+<!-- 			luôn hướng dẫn và cung cấp cho khách hàng những thông tin hữu ích với -->
+<!-- 			sự nhiệt tình và thân thiện nhất. Với phương châm “Mỗi khách hàng là -->
+<!-- 			một người bạn”, đội ngũ tư vấn viên luôn quan tâm tới nhu cầu của -->
+<!-- 			khách hàng chu đáo.</p> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-3 zoom"> -->
+<!-- 				<div class="card"> -->
+<!-- 					<img alt="" style="height: 175px" src="img/gt1.jpg"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-md-3 zoom"> -->
+<!-- 				<div class="card"> -->
+<!-- 					<img alt="" style="height: 175px" src="img/gt2.jpg"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-md-3 zoom"> -->
+<!-- 				<div class="card"> -->
+<!-- 					<img alt="" style="height: 175px" src="img/gt3.jpg"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-md-3 zoom"> -->
+<!-- 				<div class="card"> -->
+<!-- 					<img alt="" style="height: 175px" src="img/gt4.jpg"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="row pt-4"> -->
+<!-- 			<div class="col-md-3 zoom"> -->
+<!-- 				<div class="card"> -->
+<!-- 					<img alt="" style="height: 175px" src="img/gt5.jpg"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-md-3 zoom"> -->
+<!-- 				<div class="card"> -->
+<!-- 					<img alt="" style="height: 175px" src="img/gt6.jpg"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-md-3 zoom"> -->
+<!-- 				<div class="card"> -->
+<!-- 					<img alt="" style="height: 175px" src="img/gt7.jpg"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="col-md-3 zoom"> -->
+<!-- 				<div class="card"> -->
+<!-- 					<img alt="" style="height: 175px" src="img/gt8.jpg"> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- 	<br> -->
+	<%@include file="all/homeFooter.jsp"%>
+</body>
+</html>

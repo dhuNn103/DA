@@ -1,0 +1,175 @@
+package com.CPT.Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.CPT.Entities.GioiThieu;
+import com.CPT.Entities.SanPham;
+
+public class GioiThieuDaoImpl implements GioiThieuDao {
+
+	private Connection conn;
+
+	public GioiThieuDaoImpl(Connection conn) {
+		super();
+		this.conn = conn;
+	}
+
+	@Override
+	public List<GioiThieu> getAll() {
+		List<GioiThieu> list = new ArrayList<GioiThieu>();
+		GioiThieu gt = null;
+
+		try {
+			String sql = "select * from gioi_thieu";
+			PreparedStatement ps = conn.prepareStatement(sql);
+
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				gt = new GioiThieu();
+				gt.setId(rs.getInt(1));
+				gt.setIdTieude(rs.getInt(2));
+				gt.setNoidung(rs.getString(3));
+				gt.setHinh_anh(rs.getString(4));
+
+				list.add(gt);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public boolean add(GioiThieu gt) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean edit(GioiThieu gt) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delete(int id) {
+		// TODO Auto-generated method stu
+		return false;
+	}
+
+	@Override
+	public List<GioiThieu> getsearch(String search) {
+		List<GioiThieu> gtlist = new ArrayList<GioiThieu>();
+		GioiThieu gt = null;
+		try {
+			String sql = "select * from gioi_thieu where tieu_de like ? or noi_dung like ? or hinh_anh like ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, "%" +search+ "%");
+			ps.setString(2, "%" +search+ "%");
+			ps.setString(3, "%" +search+ "%");
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				gt = new GioiThieu();
+				gt.setId(rs.getInt(1));
+				gt.setIdTieude(rs.getInt(2));
+				gt.setNoidung(rs.getString(3));
+				gt.setHinh_anh(rs.getString(4));
+				
+				gtlist.add(gt);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return gtlist;
+	}
+
+	@Override
+	public List<GioiThieu> getAllTieuDe1() {
+		List<GioiThieu> listAll = new ArrayList<GioiThieu>();
+		String sql = "select * from gioi_thieu where tieu_de = ? order by id_gioi_thieu desc";
+
+		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+			ps.setString(1, "I. Giới Thiệu");
+
+			try (ResultSet rs = ps.executeQuery()) {
+				int i = 1;
+				while (rs.next()) {
+					GioiThieu gt = new GioiThieu();
+					gt.setId(rs.getInt(1));
+					gt.setIdTieude(rs.getInt(2));
+					gt.setNoidung(rs.getString(3));
+					gt.setHinh_anh(rs.getString(4));
+					
+					listAll.add(gt);
+					i++;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return listAll;
+	}
+
+	@Override
+	public List<GioiThieu> getAllTieuDe2() {
+		List<GioiThieu> listAll = new ArrayList<GioiThieu>();
+		String sql = "select * from gioi_thieu where tieu_de = ? order by id_gioi_thieu desc";
+
+		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+			ps.setString(1, "II. Đội Ngũ Nhân Viên");
+
+			try (ResultSet rs = ps.executeQuery()) {
+				int i = 1;
+				while (rs.next()) {
+					GioiThieu gt = new GioiThieu();
+					gt.setId(rs.getInt(1));
+					gt.setIdTieude(rs.getInt(2));
+					gt.setNoidung(rs.getString(3));
+					gt.setHinh_anh(rs.getString(4));
+					
+					listAll.add(gt);
+					i++;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return listAll;
+	}
+
+	@Override
+	public List<GioiThieu> getAllTieuDe3() {
+		List<GioiThieu> listAll = new ArrayList<GioiThieu>();
+		String sql = "select * from gioi_thieu where tieu_de = ? order by id_gioi_thieu desc";
+
+		try (PreparedStatement ps = conn.prepareStatement(sql)) {
+			ps.setString(1, "III. Hoạt Động Văn Hóa");
+
+			try (ResultSet rs = ps.executeQuery()) {
+				int i = 1;
+				while (rs.next() && i <= 4) {
+					GioiThieu gt = new GioiThieu();
+					gt.setId(rs.getInt(1));
+					gt.setTieude(rs.getString(2));
+					gt.setNoidung(rs.getString(3));
+					gt.setHinh_anh(rs.getString(4));
+					
+					listAll.add(gt);
+					i++;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return listAll;
+	}
+
+}

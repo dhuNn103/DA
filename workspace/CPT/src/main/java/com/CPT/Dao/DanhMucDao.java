@@ -15,4 +15,6 @@ public interface DanhMucDao {
 	public boolean editDanhMuc(DanhMuc dms);
 	
 	public boolean deleteDanhMuc(int id);
+	
+	public List<DanhMuc> getsearch(String search);
 }

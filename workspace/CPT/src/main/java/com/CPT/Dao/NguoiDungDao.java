@@ -3,6 +3,7 @@ package com.CPT.Dao;
 import java.util.List;
 
 import com.CPT.Entities.NguoiDung;
+import com.CPT.Entities.SanPham;
 
 public interface NguoiDungDao {
 
@@ -18,4 +19,5 @@ public interface NguoiDungDao {
 
 	public boolean deleteNguoiDung(int id);
 	
+	public List<NguoiDung> getNguoiDungSearch(String search);
 }

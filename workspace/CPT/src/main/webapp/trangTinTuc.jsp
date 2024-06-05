@@ -350,7 +350,6 @@ h4 {
 <body>
 	<jsp:include page="all/homeHeader.jsp"></jsp:include>
 	<div id="wrap">
-		<div id="header"></div>
 		<br>
 		<div id="noidung">
 			<div id="contend">
@@ -509,7 +508,7 @@ h4 {
 						width="300" height="300"> <br>
 			</div>
 		</div>
-		<br> <img src="img/bnp.png" width="100%" height="75">
+		<br> <img src="img/bnp.png" width="100%" height="75"></div>
 		<%@include file="all/homeFooter.jsp"%>
 </body>
 </html>

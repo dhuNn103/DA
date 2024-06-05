@@ -1,0 +1,18 @@
+package com.CPT.Dao;
+
+import java.util.List;
+
+import com.CPT.Entities.HinhAnhPage;
+
+public interface HinhAnhPageDao {
+
+	public boolean addImage(HinhAnhPage hap);
+
+	public List<HinhAnhPage> getAllHinhAnhPages();
+
+	public HinhAnhPage getAnhPageById(int id);
+
+	public boolean editAnh(HinhAnhPage hap);
+
+	public boolean deleteAnh(int id);
+}

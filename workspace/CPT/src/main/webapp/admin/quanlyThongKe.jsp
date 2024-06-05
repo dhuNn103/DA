@@ -6,60 +6,49 @@
 <meta charset="UTF-8">
 <%@include file="/all/css.jsp"%>
 <title>Quản lý thống kê</title>
+<style type="text/css">
+#chartContainer {
+	width: 90%;
+	height: 600px;
+	margin: auto;
+}
+</style>
 </head>
 <body>
 	<%@include file="/admin/template/header.jsp"%>
 	<%@include file="/admin/template/sidebar.jsp"%>
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 		<h4 class="pt-3">Thống kê</h4>
-		<div class="mx-5">
-			<a href="add_sp.jsp" class="btn btn-primary">Thêm mới sản phẩm</a>
+		<div id="chartContainer">
+			<canvas id="myChart"></canvas>
 		</div>
-		<table class="table table-bordered mt-3">
-			<thead>
-				<tr>
-					<th scope="col">Tên sản phẩm</th>
-					<th scope="col">Giá bán</th>
-					<th scope="col">Hệ điều hành</th>
-					<th scope="col">Tình trạng</th>
-					<th scope="col">Hình ảnh</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>a</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-					<td>@mdo</td>
-					<td><a href="#" class="btn btn-danger">Delete</a> <a
-						href="edit_sp.jsp" class="btn btn-primary">Edit</a> <a
-						href="chi_tiet_sp.jsp" class="btn btn-success">detail</a></td>
-				</tr>
-				<tr>
-					<th>b</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-					<td>@mdo</td>
-					<td><a href="#" class="btn btn-danger">Delete</a> <a
-						href="edit_sp.jsp" class="btn btn-primary">Edit</a> <a
-						href="chi_tiet_sp.jsp" class="btn btn-success">detail</a></td>
-				</tr>
-				<tr>
-					<th>c</th>
-					<td>Larry the Bird</td>
-					<td>@twitter</td>
-					<td>@twitter</td>
-					<td>@mdo</td>
-					<td><a href="#" class="btn btn-danger">Delete</a> <a
-						href="edit_sp.jsp" class="btn btn-primary">Edit</a> <a
-						href="chi_tiet_sp.jsp" class="btn btn-success">detail</a></td>
-				</tr>
-			</tbody>
-		</table>
-
 	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script type="text/javascript">
+		const ctx = document.getElementById('myChart').getContext('2d');
+		const myChart = new Chart(ctx, {
+			type : 'line',
+			data : {
+				labels : [ 'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4',
+						'Tháng 5', 'Tháng 6', 'Tháng 7' ],
+				datasets : [ {
+					label : 'Số liệu',
+					data : [ 12, 19, 3, 5, 2, 3, 7 ],
+					backgroundColor : 'rgba(75, 192, 192, 0.2)',
+					borderColor : 'rgba(75, 192, 192, 1)',
+					borderWidth : 1,
+					fill : true
+				} ]
+			},
+			options : {
+				scales : {
+					y : {
+						beginAtZero : true
+					}
+				}
+			}
+		});
+	</script>
 </body>
 </html>

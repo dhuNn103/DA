@@ -16,14 +16,6 @@
 			class="container-fluid d-flex justify-content-between align-items-center text-white">
 			<h5 class="ps-5 pt-1">Trang quản trị</h5>
 			
-			<form class="d-flex" action="SearchSanPham.jsp" method="post">
-				<input class="form-control me-2 mx-5" type="search" name="names"
-					placeholder="Search..." aria-label="Search">
-				<button class="btn btn-light sea" type="submit">
-					<i class="fa-solid fa-magnifying-glass"></i>
-				</button>
-			</form>
-			
 			<div class="d-flex align-items justify-content-end">
 				<%
 				String loggedInUser = (String) session.getAttribute("emls");

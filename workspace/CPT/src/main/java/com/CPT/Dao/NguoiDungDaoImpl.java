@@ -127,9 +127,9 @@ public class NguoiDungDaoImpl implements NguoiDungDao {
 			ps.setString(5, end.getMatkhau());
 			ps.setInt(6, end.getVaitroid());
 			ps.setInt(7, end.getId());
-			
+
 			int i = ps.executeUpdate();
-			if(i == 1) {
+			if (i == 1) {
 				f = true;
 			}
 		} catch (Exception e) {
@@ -155,5 +155,35 @@ public class NguoiDungDaoImpl implements NguoiDungDao {
 		return f;
 	}
 
+	@Override
+	public List<NguoiDung> getNguoiDungSearch(String search) {
+		List<NguoiDung> list = new ArrayList<NguoiDung>();
+		NguoiDung nd = null;
+		try {
+			String sql = "select * from nguoi_dung where ho_ten like ? or email like ? or so_dien_thoai like ? or dia_chi like ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, "%" + search + "%");
+			ps.setString(2, "%" + search + "%");
+			ps.setString(3, "%" + search + "%");
+			ps.setString(4, "%" + search + "%");
+			
+			ResultSet rs =  ps.executeQuery();
+			while(rs.next()) {
+				nd = new NguoiDung();
+				nd.setId(rs.getInt(1));
+				nd.setHoten(rs.getString(2));
+				nd.setEmail(rs.getString(3));
+				nd.setSodienthoai(rs.getString(4));
+				nd.setDiachi(rs.getString(5));
+				nd.setMatkhau(rs.getString(6));
+				nd.setVaitroid(rs.getInt(7));
+				
+				list.add(nd);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 }

@@ -1,0 +1,40 @@
+package com.CPT.Admin.Servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.CPT.DB.DBConnect;
+import com.CPT.Dao.DanhMucDaoImpl;
+import com.CPT.Entities.DanhMuc;
+
+public class EditDanhMuc extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html");
+		resp.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8");
+		try {
+
+			int id = Integer.parseInt("id");
+			String name = req.getParameter("");
+			
+			DanhMuc dm = new DanhMuc();
+			dm.setId(id);
+			dm.setTendanhmuc(name);
+			
+			DanhMucDaoImpl dao = new DanhMucDaoImpl(DBConnect.getConnect());
+			boolean f = dao.editDanhMuc(dm);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

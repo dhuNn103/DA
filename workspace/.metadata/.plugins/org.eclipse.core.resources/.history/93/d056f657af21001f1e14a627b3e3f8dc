@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<%@include file="/all/css.jsp"%>
+<title>Insert title here</title>
+<style type="text/css">
+.nav-pills .nav-link:hover {
+	background-color: #f7723e;
+}
+
+.nav-pills .nav-link:active {
+	background-color: red;
+}
+</style>
+</head>
+<body>
+
+	<div class="flex-column flex-shrink-0 p-3 text-white bg-success"
+		style="position: fixed; top: 0; left: 0; height: 100vh; width: auto">
+		<a href="/"
+			class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+			<svg class="bi me-2" width="40" height="32">
+            
+        </svg> <span class="fs-4">Sidebar</span>
+		</a>
+		<hr>
+		<ul class="nav nav-pills flex-column mb-auto">
+			<li class="nav-item"><a id="homeLink" href="homeAdmin.jsp"
+				class="nav-link text-white" aria-current="page"> <i
+					class="fa-solid fa-house"> </i> Trang chủ
+			</a></li>
+			<li><a id="userLink" href="quanlyTaiKhoan.jsp"
+				class="nav-link text-white"> <i class="fa-solid fa-users"></i>
+					Quản lý người dùng
+			</a></li>
+			<li><a id="productLink" href="quanlySanPham.jsp"
+				class="nav-link text-white"> <i
+					class="fa-brands fa-product-hunt"></i> Quản lý sản phẩm
+			</a></li>
+			<li><a id="categoryLink" href="quanlyDanhMuc.jsp"
+				class="nav-link text-white"> <i class="fa-solid fa-bars"></i>
+					Quản lý danh mục
+			</a></li>
+			<li><a id="newsLink" href="quanlyTinTuc.jsp"
+				class="nav-link text-white"> <i class="fa-solid fa-newspaper"></i>
+					Quản lý tin tức
+			</a></li>
+			<li><a id="cartLink" href="quanlyGioHang.jsp"
+				class="nav-link text-white"> <i
+					class="fa-solid fa-cart-shopping"></i> Quản lý giỏ hàng
+			</a></li>
+			<li><a id="statsLink" href="quanlyThongKe.jsp"
+				class="nav-link text-white"> <i class="fa-solid fa-chart-simple"></i>
+					Quản lý thống kê
+			</a></li>
+			<li><a id="statsLink" href="quanlyGiaoDien.jsp"
+				class="nav-link text-white"> <i class="fa-solid fa-display"></i>
+					Quản lý giao diện
+			</a></li>
+			<li><a id="statsLink" href="quanlyLienHe.jsp"
+				class="nav-link text-white"> <i class="fa-solid fa-phone"></i> 
+					Quản lý liên hệ
+			</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>

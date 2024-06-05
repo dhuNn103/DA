@@ -86,7 +86,7 @@ input[type="text"], input[type="password"] {
 							</div>
 							<div class="pt-3 text-center text-primary">
 								<a href="login.jsp" class="nav-link">Bạn đã có tài khoản?</a> <a
-									href="#" class="nav-link pt-1">Quên mật khẩu</a> <a
+									href="quenPass.jsp" class="nav-link pt-1">Quên mật khẩu</a> <a
 									href="index.jsp" class="nav-link d-flex justify-content-end">Hủy</a>
 							</div>
 						</form>

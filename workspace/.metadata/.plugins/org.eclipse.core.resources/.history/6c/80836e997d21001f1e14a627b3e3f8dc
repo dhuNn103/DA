@@ -1,0 +1,9 @@
+package com.CPT.Entities;
+
+public class GioiThieu {
+
+	private int id;
+	private String tieude;
+	private String noidung;
+	private String hinh_anh;
+}

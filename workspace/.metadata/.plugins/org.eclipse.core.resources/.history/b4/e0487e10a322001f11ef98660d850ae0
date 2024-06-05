@@ -1,0 +1,55 @@
+package com.CPT.Entities;
+
+public class GioiThieu {
+
+	private int id;
+	private int idtieude;
+	private String noidung;
+	private String hinhanh;
+	
+	public GioiThieu() {
+		super();
+		
+	}
+
+	public GioiThieu(int idtieude, String noidung, String hinhanh) {
+		super();
+		this.idtieude = idtieude;
+		this.noidung = noidung;
+		this.hinhanh = hinhanh;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getIdTieude() {
+		return idtieude;
+	}
+
+	public void setIdTieude(int idtieude) {
+		this.idtieude = idtieude;
+	}
+
+	public String getNoidung() {
+		return noidung;
+	}
+
+	public void setNoidung(String noidung) {
+		this.noidung = noidung;
+	}
+
+	public String getHinhanh() {
+		return hinhanh;
+	}
+
+	public void setHinh_anh(String hinhanh) {
+		this.hinhanh = hinhanh;
+	}
+	
+	
+}

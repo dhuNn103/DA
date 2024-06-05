@@ -74,7 +74,7 @@
 				<div class="col-md-3">
 					<div class="card card-ho">
 						<div class="card-body text-center">
-							<img alt="" src="img-1/chuot1.jpg"
+							<img alt="" src="img-1/"
 								style="width: 250px; height: 250px" class="image-thumblin">
 							<p>Chuột 7 màu C20</p>
 							<p class="text-danger">150.000</p>

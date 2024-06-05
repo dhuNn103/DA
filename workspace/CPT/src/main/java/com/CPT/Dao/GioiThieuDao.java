@@ -1,0 +1,25 @@
+package com.CPT.Dao;
+
+import java.util.List;
+
+import com.CPT.Entities.GioiThieu;
+
+public interface GioiThieuDao {
+
+	public List<GioiThieu> getAll();
+	
+	public boolean add(GioiThieu gt);
+	
+	public boolean edit(GioiThieu gt);
+	
+	public boolean delete(int id);
+	
+	public List<GioiThieu> getsearch(String search);
+	
+	public List<GioiThieu> getTieuDe1();
+	
+	public List<GioiThieu> getTieuDe2();
+	
+	public List<GioiThieu> getTieuDe3();
+	
+}

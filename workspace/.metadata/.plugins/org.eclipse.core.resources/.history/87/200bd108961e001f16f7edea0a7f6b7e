@@ -1,0 +1,39 @@
+package com.CPT.Dao;
+
+import java.util.List;
+
+import com.CPT.Entities.HinhAnhPage;
+
+public class HinhAnhPageDaoImpl implements HinhAnhPageDao{
+
+	@Override
+	public boolean addImage(HinhAnhPage hap) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<HinhAnhPage> getAllHinhAnhPages() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HinhAnhPage getAnhPageById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean editAnh(HinhAnhPage hap) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteAnh(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

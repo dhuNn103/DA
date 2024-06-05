@@ -22,6 +22,13 @@
 		<div class="mx-5 d-flex">
 			<a href="TaiKhoanAdd.jsp" class="btn btn-primary">Thêm mới tài
 				khoản</a>
+			<form class="d-flex mx-5" action="searchTaiKhoan.jsp" method="post">
+				<input class="form-control me-2 mx-5" type="search" name="txtsearch"
+					placeholder="Search..." aria-label="Search">
+				<button class="btn btn-light sea" type="submit">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</form>
 		</div>
 		<c:if test="${not empty status }">
 			<h5 class="text-center text-success">${status}</h5>
@@ -40,12 +47,12 @@
 		<table class="table table-bordered mt-3">
 			<thead>
 				<tr>
-					<th scope="col" style="width: 110px">Họ tên</th>
-					<th scope="col" style="width: 30px">Email</th>
-					<th scope="col" style="width: 30px">SĐT</th>
-					<th scope="col" >Địa chỉ</th>
-					<th scope="col" style="width: 150px">Mật khẩu</th>
-					<th scope="col" style="width: 20px">Id vai trò</th>
+					<th scope="col">Họ tên</th>
+					<th scope="col">Email</th>
+					<th scope="col">SĐT</th>
+					<th scope="col">Địa chỉ</th>
+					<th scope="col">Mật khẩu</th>
+					<th scope="col">Id vai trò</th>
 					<th>Actions</th>
 				</tr>
 			</thead>

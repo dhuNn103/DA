@@ -24,8 +24,4 @@
 		<url-pattern>/admin/*</url-pattern>
 	</filter-mapping>
 
-
-
-
-
 </web-app>

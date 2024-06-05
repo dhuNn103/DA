@@ -22,9 +22,7 @@
 		style="position: fixed; top: 0; left: 0; height: 100vh; width: auto">
 		<a href="/"
 			class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-			<svg class="bi me-2" width="40" height="32">
-            <use xlink:href="#bootstrap"></use>
-        </svg> <span class="fs-4">Sidebar</span>
+			<span class="fs-4">Sidebar</span>
 		</a>
 		<hr>
 		<ul class="nav nav-pills flex-column mb-auto">
@@ -57,8 +55,12 @@
 					Quản lý thống kê
 			</a></li>
 			<li><a id="statsLink" href="quanlyGiaoDien.jsp"
-				class="nav-link text-white"> <i class="fa-solid fa-chart-simple"></i>
+				class="nav-link text-white"> <i class="fa-solid fa-display"></i>
 					Quản lý giao diện
+			</a></li>
+			<li><a id="statsLink" href="quanlyLienHe.jsp"
+				class="nav-link text-white"> <i class="fa-solid fa-phone"></i>
+					Quản lý liên hệ
 			</a></li>
 		</ul>
 	</div>

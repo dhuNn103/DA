@@ -304,12 +304,12 @@ public class SanPhamDaoImpl implements SanPhamDao {
 		try {
 			String sql = "select * from san_pham where ten_san_pham like ? or loai_san_pham like ? or gia_moi like ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, "%"+search+"%");
-			ps.setString(2, "%"+search+"%");
-			ps.setString(3, "%"+search+"%");
-			
+			ps.setString(1, "%" + search + "%");
+			ps.setString(2, "%" + search + "%");
+			ps.setString(3, "%" + search + "%");
+
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				sp = new SanPham();
 				sp.setId(rs.getInt(1));
 				sp.setIddanhmuc(rs.getInt(2));
@@ -322,12 +322,42 @@ public class SanPhamDaoImpl implements SanPhamDao {
 				sp.setHinhanh(rs.getString(9));
 				sp.setLoaisanpham(rs.getString(10));
 				sp.setTinhtrang(rs.getString(11));
-				
+
 				list.add(sp);
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public List<SanPham> getSearch(String search) {
+		List<SanPham> list = new ArrayList<SanPham>();
+		SanPham sps = null;
+		try {
+			String sql = "select * from san_pham where ten_san_pham like ? or gia_moi like ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, "%" + search + "%");
+			ps.setString(2, "%" +search+ "%");
 			
-			
-			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				sps = new SanPham();
+				sps.setId(rs.getInt(1));
+				sps.setIddanhmuc(rs.getInt(2));
+				sps.setTensanpham(rs.getString(3));
+				sps.setGiacu(rs.getString(4));
+				sps.setGiamoi(rs.getString(5));
+				sps.setMota(rs.getString(6));
+				sps.setNgaytao(rs.getString(7));
+				sps.setNgaysua(rs.getString(8));
+				sps.setHinhanh(rs.getString(9));
+				sps.setLoaisanpham(rs.getString(10));
+				sps.setTinhtrang(rs.getString(11));
+				
+				list.add(sps);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

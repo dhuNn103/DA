@@ -26,4 +26,6 @@ public interface SanPhamDao {
 	
 	public List<SanPham> getSanPhamSearch(String search);
 	
+	public List<SanPham> getSearch(String search);
+	
 }

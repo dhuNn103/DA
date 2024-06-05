@@ -1,0 +1,11 @@
+package com.CPT.Admin.Servlet;
+
+import javax.servlet.http.HttpServlet;
+
+public class EditImgPage extends HttpServlet{
+
+	private static final long serialVersionUID = 1L;
+	
+	
+
+}

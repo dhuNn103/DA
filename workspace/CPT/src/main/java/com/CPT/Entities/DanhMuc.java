@@ -9,9 +9,8 @@ public class DanhMuc {
 		super();
 	}
 	
-	public DanhMuc(int id, String tendanhmuc) {
+	public DanhMuc(String tendanhmuc) {
 		super();
-		this.id = id;
 		this.tendanhmuc = tendanhmuc;
 	}
 
